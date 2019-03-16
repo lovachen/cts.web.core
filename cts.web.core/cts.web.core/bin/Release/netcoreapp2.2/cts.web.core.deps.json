@@ -1,14 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "c47044c00e9c8688642c96cf6e977b1c8ea3b089"
+    "signature": "9118e9eb3b98642acb94e819433889e8090d67ec"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "cts.web.core/1.0.1": {
+      "cts.web.core/1.0.2": {
         "dependencies": {
-          "AspNetCore.Cache": "1.1.1",
+          "AspNetCore.Cache": "1.1.2",
           "CTS.AspNetCore.Browser": "1.1.1",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
@@ -24,9 +24,9 @@
           "cts.web.core.dll": {}
         }
       },
-      "AspNetCore.Cache/1.1.1": {
+      "AspNetCore.Cache/1.1.2": {
         "dependencies": {
-          "CSRedisCore": "3.0.30",
+          "CSRedisCore": "3.0.45",
           "Microsoft.Extensions.Caching.Memory": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration.Binder": "2.2.0",
@@ -34,20 +34,20 @@
         },
         "runtime": {
           "lib/netcoreapp2.2/AspNetCore.Cache.dll": {
-            "assemblyVersion": "1.1.1.0",
-            "fileVersion": "1.1.1.0"
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
           }
         }
       },
-      "CSRedisCore/3.0.30": {
+      "CSRedisCore/3.0.45": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
-          "SafeObjectPool": "1.0.12"
+          "SafeObjectPool": "2.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/CSRedisCore.dll": {
-            "assemblyVersion": "3.0.30.0",
-            "fileVersion": "3.0.30.0"
+            "assemblyVersion": "3.0.45.0",
+            "fileVersion": "3.0.45.0"
           }
         }
       },
@@ -501,11 +501,11 @@
           }
         }
       },
-      "SafeObjectPool/1.0.12": {
+      "SafeObjectPool/2.0.1": {
         "runtime": {
           "lib/netstandard2.0/SafeObjectPool.dll": {
-            "assemblyVersion": "1.0.12.0",
-            "fileVersion": "1.0.12.0"
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
           }
         }
       },
@@ -604,24 +604,24 @@
     }
   },
   "libraries": {
-    "cts.web.core/1.0.1": {
+    "cts.web.core/1.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "AspNetCore.Cache/1.1.1": {
+    "AspNetCore.Cache/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OtRJ3RnSMumD7QSHkCa37U83DxPREbxPZFeK56o73LP+o3KQ7b28xHj2Eao//mZn0TgQ4vqSaz6TTbTgmWI/RQ==",
-      "path": "aspnetcore.cache/1.1.1",
-      "hashPath": "aspnetcore.cache.1.1.1.nupkg.sha512"
+      "sha512": "sha512-Lm91n/YNTD429E4eijkbjsD1E17JRBtobrSDL9wW1orL0whUUdknPFwetQIJOKe/GY8N0Wq+2HqCvWqfPlzdjw==",
+      "path": "aspnetcore.cache/1.1.2",
+      "hashPath": "aspnetcore.cache.1.1.2.nupkg.sha512"
     },
-    "CSRedisCore/3.0.30": {
+    "CSRedisCore/3.0.45": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q8l+NTQEYpfBVIS187O8C1dTugjkv3+Av9aklkDWnrBfLLxcG/KZD7SwdwOL77dVrwP4whzZTn4FBPPN//ma+Q==",
-      "path": "csrediscore/3.0.30",
-      "hashPath": "csrediscore.3.0.30.nupkg.sha512"
+      "sha512": "sha512-8VrkXH7jsd9VXQbWi5zsse7dm6miXYsH0i+j1zvFPboUcn0Ob5kHwLedUutnUfHBxFuKPu+5S1LJ37tRDhkQyw==",
+      "path": "csrediscore/3.0.45",
+      "hashPath": "csrediscore.3.0.45.nupkg.sha512"
     },
     "CTS.AspNetCore.Browser/1.1.1": {
       "type": "package",
@@ -889,12 +889,12 @@
       "path": "pinyinconvertercore/1.0.2",
       "hashPath": "pinyinconvertercore.1.0.2.nupkg.sha512"
     },
-    "SafeObjectPool/1.0.12": {
+    "SafeObjectPool/2.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hSIyCs5wWWnqjaIiN6Ba5aTfdZVCQ4S0t5nXUCCPE+buw8b3TN+frjjdkq/tTRcDqSVoVVgH9+GSPghzAAa0rQ==",
-      "path": "safeobjectpool/1.0.12",
-      "hashPath": "safeobjectpool.1.0.12.nupkg.sha512"
+      "sha512": "sha512-LFP5kSdM8HgXhgNzI5Fhy8oK9FDVASK9skSziyn9tgQhhoDmwscXIl3TTCyjIIUo08Nq7hbvD808g5rZfiTbxA==",
+      "path": "safeobjectpool/2.0.1",
+      "hashPath": "safeobjectpool.2.0.1.nupkg.sha512"
     },
     "System.Buffers/4.5.0": {
       "type": "package",
