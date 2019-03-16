@@ -1,13 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "af49592102017939670df8e21b0b6d4b1d2bea4b"
+    "signature": "7c0ee1a946e64bc03757213c78e22da591703421"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "cts.web.core/1.0.0": {
         "dependencies": {
+          "AspNetCore.Cache": "1.1.1",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
@@ -20,6 +21,33 @@
         },
         "runtime": {
           "cts.web.core.dll": {}
+        }
+      },
+      "AspNetCore.Cache/1.1.1": {
+        "dependencies": {
+          "CSRedisCore": "3.0.30",
+          "Microsoft.Extensions.Caching.Memory": "2.2.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Configuration.Binder": "2.2.0",
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/AspNetCore.Cache.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
+        }
+      },
+      "CSRedisCore/3.0.30": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1",
+          "SafeObjectPool": "1.0.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSRedisCore.dll": {
+            "assemblyVersion": "3.0.30.0",
+            "fileVersion": "3.0.30.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.1.0": {
@@ -117,6 +145,30 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {
             "assemblyVersion": "2.1.0.0",
             "fileVersion": "2.1.0.18136"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18315"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18315"
           }
         }
       },
@@ -314,6 +366,14 @@
           }
         }
       },
+      "SafeObjectPool/1.0.12": {
+        "runtime": {
+          "lib/netstandard2.0/SafeObjectPool.dll": {
+            "assemblyVersion": "1.0.12.0",
+            "fileVersion": "1.0.12.0"
+          }
+        }
+      },
       "System.Buffers/4.5.0": {},
       "System.ComponentModel.Annotations/4.5.0": {},
       "System.Memory/4.5.1": {},
@@ -340,6 +400,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNetCore.Cache/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OtRJ3RnSMumD7QSHkCa37U83DxPREbxPZFeK56o73LP+o3KQ7b28xHj2Eao//mZn0TgQ4vqSaz6TTbTgmWI/RQ==",
+      "path": "aspnetcore.cache/1.1.1",
+      "hashPath": "aspnetcore.cache.1.1.1.nupkg.sha512"
+    },
+    "CSRedisCore/3.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q8l+NTQEYpfBVIS187O8C1dTugjkv3+Av9aklkDWnrBfLLxcG/KZD7SwdwOL77dVrwP4whzZTn4FBPPN//ma+Q==",
+      "path": "csrediscore/3.0.30",
+      "hashPath": "csrediscore.3.0.30.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.1.0": {
       "type": "package",
@@ -396,6 +470,20 @@
       "sha512": "sha512-wD/vUXBtcRW4PDM7Jh5g1+dJD48/StyO5vAihKY7IvJ3FhG2rZPsdVlgC0F1DcWjc7gaZ4V8XHXKQTIxRLE5FA==",
       "path": "microsoft.aspnetcore.webutilities/2.1.0",
       "hashPath": "microsoft.aspnetcore.webutilities.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3phHFN5lXktB6Id1D0tvojf9GohSyoTwCadVZmCeKEDVj2u2xR3hLtj+lf9mpmCC5FuLbcyVjepZgFFHazHjIA==",
+      "path": "microsoft.extensions.caching.abstractions/2.2.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dPJ4f6vOg9WdgWyrMMU5rRhOyQ7DxM7Ivxx8z80NeF2Xygi9g51MuxMOaZwxNClDcxvJ6ZsPKBH61B54LrnYRA==",
+      "path": "microsoft.extensions.caching.memory/2.2.0",
+      "hashPath": "microsoft.extensions.caching.memory.2.2.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/2.2.0": {
       "type": "package",
@@ -522,6 +610,13 @@
       "sha512": "sha512-GWGUL7HYyyTZeVltwgJ2sr8ER+Wyj1aR44KN1A5GS0iB3j/JqXDG62OHupz3iFczCQ4797IhHSSqOet7MvsWJQ==",
       "path": "pinyinconvertercore/1.0.2",
       "hashPath": "pinyinconvertercore.1.0.2.nupkg.sha512"
+    },
+    "SafeObjectPool/1.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hSIyCs5wWWnqjaIiN6Ba5aTfdZVCQ4S0t5nXUCCPE+buw8b3TN+frjjdkq/tTRcDqSVoVVgH9+GSPghzAAa0rQ==",
+      "path": "safeobjectpool/1.0.12",
+      "hashPath": "safeobjectpool.1.0.12.nupkg.sha512"
     },
     "System.Buffers/4.5.0": {
       "type": "package",
