@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core.Config
+namespace cts.web.core.Config
 {
     /// <summary>
     /// rabbitmq 配置

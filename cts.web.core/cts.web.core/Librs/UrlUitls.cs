@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 

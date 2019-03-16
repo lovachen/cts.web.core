@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 

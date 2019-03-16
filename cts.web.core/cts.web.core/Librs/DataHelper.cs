@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 数据帮助类

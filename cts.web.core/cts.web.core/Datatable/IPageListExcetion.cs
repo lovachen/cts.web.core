@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using cts.web.Core;
+using cts.web.core;
 
-namespace cts.web.Core.Datatable
+namespace cts.web.core.Datatable
 {
     /// <summary>
     /// 

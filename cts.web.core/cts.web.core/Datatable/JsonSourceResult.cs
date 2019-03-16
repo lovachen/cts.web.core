@@ -1,11 +1,11 @@
-﻿using cts.web.Core;
+﻿using cts.web.core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cts.web.Core.Datatable
+namespace cts.web.core.Datatable
 {
     /// <summary>
     /// json分页结果

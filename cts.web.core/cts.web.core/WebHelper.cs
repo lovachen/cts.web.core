@@ -7,7 +7,7 @@ using System.Linq;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
 
-namespace cts.web.Core
+namespace cts.web.core
 {
     /// <summary>
     /// 

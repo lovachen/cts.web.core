@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cts.web.Core
+namespace cts.web.core
 {
     /// <summary>
     /// 

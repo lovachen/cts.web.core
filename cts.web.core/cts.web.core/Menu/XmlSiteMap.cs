@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-namespace cts.web.Core.Menu
+namespace cts.web.core.Menu
 {
     /// <summary>
     /// 

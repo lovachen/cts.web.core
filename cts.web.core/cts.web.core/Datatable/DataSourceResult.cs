@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cts.web.Core.Datatable
+namespace cts.web.core.Datatable
 {
     /// <summary>
     /// 无参数

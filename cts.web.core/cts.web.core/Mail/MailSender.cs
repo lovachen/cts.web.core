@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cts.web.Core.Mail
+namespace cts.web.core.Mail
 {
     public class MailSender : IMailSender
     {

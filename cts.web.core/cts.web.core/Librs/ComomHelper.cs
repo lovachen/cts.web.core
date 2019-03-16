@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 常用工具类

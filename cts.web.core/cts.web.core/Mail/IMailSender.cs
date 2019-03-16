@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core.Mail
+namespace cts.web.core.Mail
 {
     public interface IMailSender
     {

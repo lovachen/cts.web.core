@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace cts.web.Core.Datatable
+namespace cts.web.core.Datatable
 { 
  
     /// <summary>

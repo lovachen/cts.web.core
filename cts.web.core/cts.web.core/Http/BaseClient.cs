@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace cts.web.Core.Http
+namespace cts.web.core.Http
 {
     /// <summary>
     /// http请求基础类

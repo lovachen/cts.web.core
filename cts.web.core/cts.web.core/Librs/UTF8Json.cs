@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 

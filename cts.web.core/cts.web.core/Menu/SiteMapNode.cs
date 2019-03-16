@@ -1,10 +1,10 @@
-﻿using cts.web.Core.Librs;
+﻿using cts.web.core.Librs;
 using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core.Menu
+namespace cts.web.core.Menu
 {
     /// <summary>
     /// 

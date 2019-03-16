@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Runtime.Loader;
 using System.Text;
 
-namespace cts.web.Core.Librs
+namespace cts.web.core.Librs
 {
     /// <summary>
     /// 允许时

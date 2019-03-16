@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace cts.web.Core
+namespace cts.web.core
 {
     /// <summary>
     /// 引擎上下文

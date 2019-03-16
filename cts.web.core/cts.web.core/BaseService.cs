@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core
+namespace cts.web.core
 {
     /// <summary>
     /// 服务层基础类

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace cts.web.Core.Model
+namespace cts.web.core.Model
 {
     /// <summary>
     /// ajax请求结果

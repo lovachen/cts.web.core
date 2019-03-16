@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "cts.web.core/1.0.2": {
+      "cts.web.core/1.0.3": {
         "dependencies": {
           "AspNetCore.Cache": "1.1.2",
           "CTS.AspNetCore.Browser": "1.1.1",
@@ -604,7 +604,7 @@
     }
   },
   "libraries": {
-    "cts.web.core/1.0.2": {
+    "cts.web.core/1.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
