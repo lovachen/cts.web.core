@@ -66,21 +66,21 @@ namespace cts.web.core
             // 检查workerid，5位最大值为31，最小0
             if (workerId > MaxWorkerId || workerId < 0)
             {
-                throw new ArgumentException(String.Format("worker Id can't be greater than {0} or less than 0", MaxWorkerId));
+                throw new ArgumentException(String.Format("workerid 不能大于 {0} 或小于 0", MaxWorkerId));
             }
             // 检查 datacenterId，5位最大值为31，最小0
             if (datacenterId > MaxDatacenterId || datacenterId < 0)
             {
-                throw new ArgumentException(String.Format("datacenter Id can't be greater than {0} or less than 0", MaxDatacenterId));
+                throw new ArgumentException(String.Format("datacenterId 不能大于 {0} 或小于 0", MaxDatacenterId));
             }
         }
 
         /// <summary>
         /// 获取默认的IWorker对象，以workerId=0，datacenterId=0 构建
-        /// 适合单机使用
+        /// 只适合单机使用
         /// </summary>
-        public IdWorker Default => _worker;
-         
+        public static IdWorker Default => _worker;
+
         /// <summary>
         /// 获取新的Id
         /// </summary>
@@ -95,7 +95,7 @@ namespace cts.web.core
                 {
                     //时间戳毫秒数小于最后的值
                     throw new Exception(String.Format(
-                        "Clock moved backwards.  Refusing to generate id for {0} milliseconds", _lastTimestamp - timestamp));
+                        "时间倒退，拒绝在{0} milliseconds 生成id", _lastTimestamp - timestamp));
                 }
 
                 if (_lastTimestamp == timestamp)
@@ -134,7 +134,7 @@ namespace cts.web.core
             }
             return timestamp;
         }
-         
+
         /// <summary>
         /// 获取毫秒数
         /// </summary>
