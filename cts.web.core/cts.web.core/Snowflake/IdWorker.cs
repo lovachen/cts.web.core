@@ -5,7 +5,7 @@ using System.Text;
 namespace cts.web.core
 {
     /// <summary>
-    /// 雪花算法，局限在于只能使用69年，机器总数不操作1024台
+    /// 雪花算法，局限在于只能使用69年，机器总数不超过1024台
     /// </summary>
     public class IdWorker
     {
