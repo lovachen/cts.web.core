@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "867b6eda815af2f6f1a62081368fa25b55d72c12"
+    "signature": "3aecb820059f2ca08bb5a5b9b4125fb6885d62a7"
   },
   "compilationOptions": {},
   "targets": {
@@ -13,12 +13,13 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Authorization": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Razor": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration.Binder": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
           "Microsoft.Extensions.Logging": "2.2.0",
-          "NLog.Web.AspNetCore": "4.8.0",
+          "NLog.Web.AspNetCore": "4.8.1",
           "Newtonsoft.Json": "12.0.1",
           "PinYinConverterCore": "1.0.2",
           "System.IdentityModel.Tokens.Jwt": "5.4.0"
@@ -194,6 +195,17 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18316"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Http/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -255,6 +267,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Razor/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18316"
           }
         }
       },
@@ -586,7 +609,7 @@
           }
         }
       },
-      "NLog.Web.AspNetCore/4.8.0": {
+      "NLog.Web.AspNetCore/4.8.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.0",
@@ -596,7 +619,7 @@
         "runtime": {
           "lib/netstandard2.0/NLog.Web.AspNetCore.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.8.982.0"
+            "fileVersion": "4.8.1.1038"
           }
         }
       },
@@ -1574,6 +1597,13 @@
       "path": "microsoft.aspnetcore.hosting.server.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z08ZN/kjJ15AQyNY349dpTPJdpdVJ/RYLLJjY9sf6VoHBf3vRBSCBx6orXMspMeRJrhHultPTP0IKVK2g4KZxg==",
+      "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Http/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -1608,6 +1638,13 @@
       "sha512": "sha512-KvSgkNkWnK4Ikmz1QmFOD32PynAvVibY6piwcRysgWFLuzkjgERVJ6YNOR6/Tegnb79+xG7GzP92bA7RKFl+sw==",
       "path": "microsoft.aspnetcore.mvc.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Razor/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aM2aGQQh/kVOdgThej+4+ypFU8jSp2Dq/wZg9+e6/7RVAwlk8lQp8n2iYV9ltsSycE/4EU+LIMHegzaGBLOmsA==",
+      "path": "microsoft.aspnetcore.razor/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Routing.Abstractions/2.2.0": {
       "type": "package",
@@ -1798,12 +1835,12 @@
       "path": "nlog.extensions.logging/1.4.0",
       "hashPath": "nlog.extensions.logging.1.4.0.nupkg.sha512"
     },
-    "NLog.Web.AspNetCore/4.8.0": {
+    "NLog.Web.AspNetCore/4.8.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Bs9tHNwdTDA7FFxS+tqxrr0EQAZjcnex6drcjCni9yHEupZdo5wOJP3oSGe+2W1enHo3RjglM2CvVbFuqbhcXA==",
-      "path": "nlog.web.aspnetcore/4.8.0",
-      "hashPath": "nlog.web.aspnetcore.4.8.0.nupkg.sha512"
+      "sha512": "sha512-UsdhDosQkpLPNE1W29KjYVACiXsb6PxEsYqDKNVFEGvkt6GCEdUqZ/7VmhO7pAhZFl+1PiCdgPfrSqR+V5D4AQ==",
+      "path": "nlog.web.aspnetcore/4.8.1",
+      "hashPath": "nlog.web.aspnetcore.4.8.1.nupkg.sha512"
     },
     "PinYinConverterCore/1.0.2": {
       "type": "package",
