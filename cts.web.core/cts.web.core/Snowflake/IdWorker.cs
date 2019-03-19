@@ -8,7 +8,7 @@ namespace cts.web.core
     /// 雪花算法，局限在于只能使用69年，机器总数不超过1024台
     /// 理论上来讲 12位 Sequence 一秒生产 4096 *1000个ID
     /// 想要延长年限就 减少 SequenceBits 和机器总数 ，当SequenceBits=8时 年限增加到 1115年 一秒生产 255*1000 个ID
-    /// 
+    /// 所以以此8来计算
     /// </summary>
     public class IdWorker
     {
@@ -16,7 +16,7 @@ namespace cts.web.core
 
         const int WorkerIdBits = 5;
         const int DatacenterIdBits = 5;
-        const int SequenceBits = 12;
+        const int SequenceBits = 8; //12
         const long MaxWorkerId = -1L ^ (-1L << WorkerIdBits);
         const long MaxDatacenterId = -1L ^ (-1L << DatacenterIdBits);
 
