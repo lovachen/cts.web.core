@@ -66,6 +66,19 @@ namespace cts.web.core.Menu
         /// <summary>
         /// 
         /// </summary>
+        public string Controller { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Action { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Target { get; set; }
+
+
+
     }
 }
