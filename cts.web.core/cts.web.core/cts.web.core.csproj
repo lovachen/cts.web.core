@@ -8,6 +8,10 @@
     <Version>1.0.6</Version>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>F:\github\cts.web.core\cts.web.core\cts.web.core\cts.web.core.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AspNetCore.Cache" Version="1.1.2" />
     <PackageReference Include="CTS.AspNetCore.Browser" Version="1.1.1" />
