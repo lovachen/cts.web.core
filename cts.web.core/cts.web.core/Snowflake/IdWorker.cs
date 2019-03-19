@@ -4,6 +4,9 @@ using System.Text;
 
 namespace cts.web.core
 {
+    /// <summary>
+    /// 雪花算法，局限在于只能使用69年，机器总数不操作1024台
+    /// </summary>
     public class IdWorker
     {
         public const long Twepoch = 1552922013928L;//2019.01.01开始
