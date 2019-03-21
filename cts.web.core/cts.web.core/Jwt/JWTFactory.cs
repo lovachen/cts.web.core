@@ -8,10 +8,17 @@ using System.Text;
 
 namespace cts.web.core.Jwt
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class JWTFactory : IJWTFactory
     {
         private JWTTokenOptions _tokenOptions;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jWTTokenOptions"></param>
         public JWTFactory(JWTTokenOptions jWTTokenOptions)
         {
             _tokenOptions = jWTTokenOptions;
@@ -23,7 +30,7 @@ namespace cts.web.core.Jwt
         /// </summary>
         /// <param name="user">用户信息实体</param>
         /// <param name="expire">token 过期时间</param>
-        /// <param name="audience">Token 接收者</param>
+        /// <param name="jti"></param>
         /// <returns></returns>
         public string CreateToken(User user, string jti, DateTime expire)
         {
