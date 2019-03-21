@@ -22,7 +22,6 @@ namespace cts.web.core.Jwt
         public JWTFactory(JWTTokenOptions jWTTokenOptions)
         {
             _tokenOptions = jWTTokenOptions;
-
         }
 
         /// <summary>
