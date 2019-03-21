@@ -35,27 +35,27 @@
         </member>
         <member name="P:cts.web.core.Config.RabbitMQConfig.Password">
             <summary>
-            
+            密码
             </summary>
         </member>
         <member name="P:cts.web.core.Config.RabbitMQConfig.UserName">
             <summary>
-            
+            用户名
             </summary>
         </member>
         <member name="P:cts.web.core.Config.RabbitMQConfig.Port">
             <summary>
-            
+            端口
             </summary>
         </member>
         <member name="P:cts.web.core.Config.RabbitMQConfig.HostName">
             <summary>
-            
+            主机
             </summary>
         </member>
         <member name="P:cts.web.core.Config.RabbitMQConfig.VirtualHost">
             <summary>
-            
+            虚拟
             </summary>
         </member>
         <member name="T:cts.web.core.Datatable.DataSourceResult`1">
@@ -351,7 +351,7 @@
         </member>
         <member name="T:cts.web.core.Engine">
             <summary>
-            
+            引擎
             </summary>
         </member>
         <member name="M:cts.web.core.Engine.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
@@ -524,13 +524,24 @@
             <param name="expire"></param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Jwt.JWTFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Jwt.JWTFactory.#ctor(cts.web.core.Jwt.JWTTokenOptions)">
+            <summary>
+            
+            </summary>
+            <param name="jWTTokenOptions"></param>
+        </member>
         <member name="M:cts.web.core.Jwt.JWTFactory.CreateToken(cts.web.core.Jwt.User,System.String,System.DateTime)">
             <summary>
             生成一个新的 Token
             </summary>
             <param name="user">用户信息实体</param>
             <param name="expire">token 过期时间</param>
-            <param name="audience">Token 接收者</param>
+            <param name="jti"></param>
             <returns></returns>
         </member>
         <member name="T:cts.web.core.Jwt.JWTTokenOptions">
@@ -581,6 +592,11 @@
         <member name="P:cts.web.core.Jwt.User.UserName">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Jwt.User.UserData">
+            <summary>
+            数据
             </summary>
         </member>
         <member name="T:cts.web.core.Librs.Chinese2PinYin">
@@ -1641,24 +1657,6 @@
             <param name="timeStamp"></param>
             <returns></returns>
         </member>
-        <member name="T:System.GuidExtension">
-            <summary>
-            Guid 的扩拓展
-            </summary>
-        </member>
-        <member name="M:System.GuidExtension.To16String(System.Guid)">
-            <summary>
-            根据GUID获取16位的唯一字符串
-            </summary>
-            <param name="guid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.GuidExtension.ToLongID(System.Guid)">
-            <summary> 
-            根据GUID获取19位的唯一数字序列 
-            </summary> 
-            <returns></returns> 
-        </member>
         <member name="T:System.StringExtension">
             <summary>
             字符串扩展
@@ -1753,6 +1751,11 @@
             <param name="configuration"></param>
             <returns></returns>
         </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions.AddJwt(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IHostingEnvironment,System.Action{cts.web.core.Jwt.JWTTokenOptions})">
             <summary>
             启用Jwt验证
@@ -1766,6 +1769,7 @@
             启用Jwt验证
             </summary>
             <param name="services"></param>
+            <param name="hosting"></param>
         </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.JwtServiceCollectionExtensions._AddJwt(Microsoft.Extensions.DependencyInjection.IServiceCollection,cts.web.core.Jwt.JWTTokenOptions)">
             <summary>

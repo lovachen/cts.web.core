@@ -26,6 +26,10 @@ namespace cts.web.core.Jwt
 
         /// <summary>
         /// 生成一个新的 Token
+        /// ClaimTypes.Name 获得 UserName
+        /// ClaimTypes.UserData 获得 UserData
+        /// ClaimTypes.Sid 获得 UserID
+        /// JwtRegisteredClaimNames.Jti 获得 jti
         /// </summary>
         /// <param name="user">用户信息实体</param>
         /// <param name="expire">token 过期时间</param>
