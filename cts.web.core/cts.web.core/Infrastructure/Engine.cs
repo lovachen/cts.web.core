@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace cts.web.core
 {
     /// <summary>
-    /// 
+    /// 引擎
     /// </summary>
     public abstract class Engine : IEngine
     {

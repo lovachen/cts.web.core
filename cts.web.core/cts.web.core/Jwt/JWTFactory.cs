@@ -8,10 +8,17 @@ using System.Text;
 
 namespace cts.web.core.Jwt
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class JWTFactory : IJWTFactory
     {
         private JWTTokenOptions _tokenOptions;
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jWTTokenOptions"></param>
         public JWTFactory(JWTTokenOptions jWTTokenOptions)
         {
             _tokenOptions = jWTTokenOptions;
@@ -31,7 +38,9 @@ namespace cts.web.core.Jwt
             var claims = new[]
             {
                 new Claim(ClaimTypes.PrimarySid,user.PrimarySid.ToString()),
-                new Claim(ClaimTypes.UserData, user.UserID), 
+                new Claim(ClaimTypes.Sid, user.UserID??""),
+                new Claim(ClaimTypes.Name,user.UserName??""),
+                new Claim(ClaimTypes.UserData, user.UserData??""),
                 new Claim(JwtRegisteredClaimNames.Jti,jti,ClaimValueTypes.String) // jti，用来标识 token
             };
             ClaimsIdentity identity = new ClaimsIdentity(new GenericIdentity(user.UserName, "TokenAuth"), claims);

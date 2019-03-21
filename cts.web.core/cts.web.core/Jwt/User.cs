@@ -25,5 +25,9 @@ namespace cts.web.core.Jwt
         /// </summary>
         public string UserName { get; set; }
          
+        /// <summary>
+        /// 数据
+        /// </summary>
+        public string UserData { get; set; }
     }
 }
