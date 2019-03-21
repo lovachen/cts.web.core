@@ -15,6 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         /// <summary>
         /// 程序集依赖注入
+        /// 如果类未包含接口类型则默认注入类，否则使用接口引用
         /// </summary>
         /// <param name="services"></param>
         /// <param name="assemblyName"></param>
@@ -39,20 +40,37 @@ namespace Microsoft.Extensions.DependencyInjection
             foreach (var type in list)
             {
                 var interfacesList = type.GetInterfaces();
+                //如果类未包含接口类型则默认注入类
                 if (interfacesList == null || !interfacesList.Any())
-                    continue;
-                var inter = interfacesList.First();
-                switch (serviceLifetime)
                 {
-                    case ServiceLifetime.Scoped:
-                        services.AddScoped(inter, type);
-                        break;
-                    case ServiceLifetime.Singleton:
-                        services.AddSingleton(inter, type);
-                        break;
-                    case ServiceLifetime.Transient:
-                        services.AddTransient(inter, type);
-                        break;
+                    switch (serviceLifetime)
+                    {
+                        case ServiceLifetime.Scoped:
+                            services.AddScoped(type);
+                            break;
+                        case ServiceLifetime.Singleton:
+                            services.AddSingleton(type);
+                            break;
+                        case ServiceLifetime.Transient:
+                            services.AddTransient(type);
+                            break;
+                    }
+                }
+                else
+                {
+                    var inter = interfacesList.First();
+                    switch (serviceLifetime)
+                    {
+                        case ServiceLifetime.Scoped:
+                            services.AddScoped(inter, type);
+                            break;
+                        case ServiceLifetime.Singleton:
+                            services.AddSingleton(inter, type);
+                            break;
+                        case ServiceLifetime.Transient:
+                            services.AddTransient(inter, type);
+                            break;
+                    }
                 }
             }
         }

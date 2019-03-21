@@ -15,7 +15,6 @@ namespace cts.web.core.Model
         /// </summary>
         public AjaxResult()
         {
-            Status = false;
             Message = "";
         }
 
@@ -23,11 +22,6 @@ namespace cts.web.core.Model
         /// 状态码 0 代表请求正常
         /// </summary>
         public int Code { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool Status { get; set; }
 
         /// <summary>
         /// 

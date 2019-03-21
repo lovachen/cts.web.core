@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class JwtServiceCollectionExtensions
     {
         /// <summary>
@@ -41,6 +44,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// 启用Jwt验证
         /// </summary>
         /// <param name="services"></param>
+        /// <param name="hosting"></param>
         public static void AddJwt(this IServiceCollection services, IHostingEnvironment hosting)
         {
             // 从文件读取密钥

@@ -49,13 +49,36 @@ namespace cts.web.core.Menu
         public string RouteTemplate { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public string RouteName { get; set; }
+
+        /// <summary>
         /// 自动读取循序设置
         /// </summary>
         public int Sort { get; set; }
          
         /// <summary>
-        /// 0：后台，1：客服，2：经纪
+        /// 
+        /// </summary>
+        public string IconClass { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Controller { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Action { get; set; }
+
+        /// <summary>
+        /// 
         /// </summary>
         public string Target { get; set; }
+
+
+
     }
 }
