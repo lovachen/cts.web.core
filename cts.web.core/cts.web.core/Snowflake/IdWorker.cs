@@ -12,6 +12,9 @@ namespace cts.web.core
     /// </summary>
     public class IdWorker
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public const long Twepoch = 1552922013928L;//2019.01.01开始
 
         const int WorkerIdBits = 5;
@@ -21,8 +24,8 @@ namespace cts.web.core
         const long MaxDatacenterId = -1L ^ (-1L << DatacenterIdBits);
 
         private const int WorkerIdShift = SequenceBits;
-        private const int DatacenterIdShift = SequenceBits + WorkerIdBits;
-        public const int TimestampLeftShift = SequenceBits + WorkerIdBits + DatacenterIdBits;
+        private const int DatacenterIdShift = SequenceBits + WorkerIdBits; 
+        private const int TimestampLeftShift = SequenceBits + WorkerIdBits + DatacenterIdBits;
         private const long SequenceMask = -1L ^ (-1L << SequenceBits);
 
         private long _sequence = 0L;

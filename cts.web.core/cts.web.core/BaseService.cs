@@ -7,7 +7,7 @@ namespace cts.web.core
     /// <summary>
     /// 服务层基础类
     /// </summary>
-    public class BaseService
+    public abstract class BaseService
     {
         /// <summary>
         /// 失败

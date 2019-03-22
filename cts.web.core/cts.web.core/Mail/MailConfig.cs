@@ -16,7 +16,7 @@ namespace cts.web.core.Mail
         public string Host { get; set; } = "smtp.qq.com";
 
         /// <summary>
-        /// 
+        /// 端口
         /// </summary>
         public int Port { get; set; } = 587;
 

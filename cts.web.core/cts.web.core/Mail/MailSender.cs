@@ -8,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace cts.web.core.Mail
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MailSender : IMailSender
     {
         private MailConfig _config;
         private ILogger<MailSender> _logger;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="logger"></param>
         public MailSender(MailConfig config,
             ILogger<MailSender> logger)
         {
@@ -26,6 +34,7 @@ namespace cts.web.core.Mail
         /// <param name="to"></param>
         /// <param name="subject"></param>
         /// <param name="body"></param>
+        /// <param name="isHtml"></param>
         public void Smtp(string to, string subject, string body, bool isHtml = false)
         {
             Smtp(new List<string>() { to }, subject, body, isHtml);

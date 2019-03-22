@@ -4,6 +4,9 @@ using System.Text;
 
 namespace cts.web.core
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AppSetting
     {
         /// <summary>

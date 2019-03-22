@@ -74,7 +74,7 @@ namespace cts.web.core.Menu
         public string Action { get; set; }
 
         /// <summary>
-        /// 
+        /// 分类标识
         /// </summary>
         public string Target { get; set; }
 
