@@ -4,6 +4,11 @@
         <name>cts.web.core</name>
     </assembly>
     <members>
+        <member name="T:cts.web.core.AppSetting">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:cts.web.core.AppSetting.PageSize">
             <summary>
             app数据返回的每页条数
@@ -1183,24 +1188,28 @@
             <param name="t"></param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Mail.IMailSender">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:cts.web.core.Mail.IMailSender.Smtp(System.String,System.String,System.String,System.Boolean)">
             <summary>
             发送邮件
             </summary>
-            <param name="from"></param>
             <param name="to"></param>
-            <param name="subject"></param>
-            <param name="isHtml"></param>
-            <param name="body"></param>
+            <param name="subject">主题</param>
+            <param name="isHtml">是否是html</param>
+            <param name="body">内容</param>
         </member>
         <member name="M:cts.web.core.Mail.IMailSender.Smtp(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
             <summary>
             发送邮件
             </summary>
-            <param name="tos"></param>
-            <param name="subject"></param>
-            <param name="body"></param>
-            <param name="isHtml"></param>
+            <param name="tos">接收者集合</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="isHtml">是否是html</param>
         </member>
         <member name="T:cts.web.core.Mail.MailConfig">
             <summary>
@@ -1214,7 +1223,7 @@
         </member>
         <member name="P:cts.web.core.Mail.MailConfig.Port">
             <summary>
-            
+            端口
             </summary>
         </member>
         <member name="P:cts.web.core.Mail.MailConfig.Account">
@@ -1227,6 +1236,18 @@
             密码，qq的是授权码
             </summary>
         </member>
+        <member name="T:cts.web.core.Mail.MailSender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.MailSender.#ctor(cts.web.core.Mail.MailConfig,Microsoft.Extensions.Logging.ILogger{cts.web.core.Mail.MailSender})">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="logger"></param>
+        </member>
         <member name="M:cts.web.core.Mail.MailSender.Smtp(System.String,System.String,System.String,System.Boolean)">
             <summary>
             发送邮件
@@ -1234,6 +1255,7 @@
             <param name="to"></param>
             <param name="subject"></param>
             <param name="body"></param>
+            <param name="isHtml"></param>
         </member>
         <member name="M:cts.web.core.Mail.MailSender.Smtp(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
             <summary>
@@ -1307,7 +1329,7 @@
         </member>
         <member name="P:cts.web.core.Menu.SiteMapNode.Target">
             <summary>
-            
+            分类标识
             </summary>
         </member>
         <member name="T:cts.web.core.Menu.XmlSiteMap">
@@ -1515,6 +1537,11 @@
             理论上来讲 12位 Sequence 一秒生产 4096 *1000个ID
             想要延长年限就 减少 SequenceBits 和机器总数 ，当SequenceBits=8时 年限增加到 1115年 一秒生产 255*1000 个ID
             所以以此8来计算
+            </summary>
+        </member>
+        <member name="F:cts.web.core.IdWorker.Twepoch">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:cts.web.core.IdWorker.WorkerId">

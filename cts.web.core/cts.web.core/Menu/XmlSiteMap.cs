@@ -99,7 +99,10 @@ namespace cts.web.core.Menu
             siteMapNode.UID = GetStringValueFromAttribute(xmlNode, "UID");
             siteMapNode.IsMenu = GetStringValueFromAttribute(xmlNode, "IsMenu");
             siteMapNode.Target = GetStringValueFromAttribute(xmlNode, "Target");
-
+            siteMapNode.IconClass = GetStringValueFromAttribute(xmlNode, "IconClass");
+            siteMapNode.Action = GetStringValueFromAttribute(xmlNode, "Action");
+            siteMapNode.Controller = GetStringValueFromAttribute(xmlNode, "Controller");
+            siteMapNode.RouteName = GetStringValueFromAttribute(xmlNode, "RouteName");
         }
 
         /// <summary>
