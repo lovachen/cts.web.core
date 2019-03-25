@@ -16,6 +16,7 @@ namespace cts.web.core.Model
         public AjaxResult()
         {
             Message = "";
+            Code = -1;
         }
 
         /// <summary>
