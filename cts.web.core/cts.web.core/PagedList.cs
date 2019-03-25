@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,6 +92,26 @@ namespace cts.web.core
                 .Take(pageSize).ToList();
             return new PagedList<T>(items, count, pageIndex, pageSize);
         }
+
+        /// <summary>
+        /// 创建分页数据 自动转换
+        /// </summary>
+        /// <typeparam name="E"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
+        public static PagedList<T> Create<E>(IQueryable<E> source,int pageIndex,int pageSize,IMapper mapper)
+        {
+            var count = source.Count();
+            var items = source.Skip(
+                (pageIndex - 1) * pageSize)
+                .Take(pageSize).ToList();
+            var datas = items.Select(item => mapper.Map<T>(item)).ToList();
+            return new PagedList<T>(datas, count, pageIndex, pageSize);
+        }
+
 
         /// <summary>
         /// 
