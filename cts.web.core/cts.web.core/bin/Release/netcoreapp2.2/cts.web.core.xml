@@ -1188,9 +1188,34 @@
             <param name="t"></param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Mail.IMailProvide">
+            <summary>
+            邮件发送提供者
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailProvide.Smtp(cts.web.core.Mail.MailConfig,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="to"></param>
+            <param name="subject">主题</param>
+            <param name="isHtml">是否是html</param>
+            <param name="body">内容</param>
+        </member>
+        <member name="M:cts.web.core.Mail.IMailProvide.Smtp(cts.web.core.Mail.MailConfig,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="tos">接收者集合</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="isHtml">是否是html</param>
+        </member>
         <member name="T:cts.web.core.Mail.IMailSender">
             <summary>
-            
+            邮件发送者，需要配置文件配置
             </summary>
         </member>
         <member name="M:cts.web.core.Mail.IMailSender.Smtp(System.String,System.String,System.String,System.Boolean)">
@@ -1235,6 +1260,37 @@
             <summary>
             密码，qq的是授权码
             </summary>
+        </member>
+        <member name="T:cts.web.core.Mail.MailProvide">
+            <summary>
+            邮件发送提供者
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.#ctor(Microsoft.Extensions.Logging.ILogger{cts.web.core.Mail.MailSender})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.Smtp(cts.web.core.Mail.MailConfig,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="to"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
+        </member>
+        <member name="M:cts.web.core.Mail.MailProvide.Smtp(cts.web.core.Mail.MailConfig,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="config"></param>
+            <param name="tos"></param>
+            <param name="subject"></param>
+            <param name="body"></param>
+            <param name="isHtml"></param>
         </member>
         <member name="T:cts.web.core.Mail.MailSender">
             <summary>
@@ -1499,6 +1555,17 @@
             <param name="source"></param>
             <param name="pageIndex"></param>
             <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.PagedList`1.Create``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,AutoMapper.IMapper)">
+            <summary>
+            创建分页数据 自动转换
+            </summary>
+            <typeparam name="E"></typeparam>
+            <param name="source"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="mapper"></param>
             <returns></returns>
         </member>
         <member name="P:cts.web.core.PagedList`1.HasNextPage">

@@ -5,7 +5,7 @@
     <PackageProjectUrl>https://github.com/lovachen/cts.web.core</PackageProjectUrl>
     <Description>asp.net core 项目的类库，提取出来方便使用，持续更新</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.16</Version>
+    <Version>1.0.17</Version>
     <Authors>cts</Authors>
   </PropertyGroup>
 

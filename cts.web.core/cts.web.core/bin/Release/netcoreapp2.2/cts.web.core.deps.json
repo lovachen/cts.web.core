@@ -1,14 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "303cd293b143d0500be739bc8da636c5c85fdc98"
+    "signature": "efe92d75a0dad60052946993a4e28d987994ac33"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "cts.web.core/1.0.15": {
+      "cts.web.core/1.0.17": {
         "dependencies": {
           "AspNetCore.Cache": "1.1.2",
+          "AutoMapper": "8.0.0",
           "CTS.AspNetCore.Browser": "1.1.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Authorization": "2.2.0",
@@ -41,6 +42,18 @@
           "lib/netcoreapp2.2/AspNetCore.Cache.dll": {
             "assemblyVersion": "1.1.2.0",
             "fileVersion": "1.1.2.0"
+          }
+        }
+      },
+      "AutoMapper/8.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
           }
         }
       },
@@ -1701,7 +1714,7 @@
     }
   },
   "libraries": {
-    "cts.web.core/1.0.15": {
+    "cts.web.core/1.0.17": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1712,6 +1725,13 @@
       "sha512": "sha512-Lm91n/YNTD429E4eijkbjsD1E17JRBtobrSDL9wW1orL0whUUdknPFwetQIJOKe/GY8N0Wq+2HqCvWqfPlzdjw==",
       "path": "aspnetcore.cache/1.1.2",
       "hashPath": "aspnetcore.cache.1.1.2.nupkg.sha512"
+    },
+    "AutoMapper/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-px8ZMtIq84dxciB29V+ZYOtsRLZP4JlflDDMW13LyeRdwsnIInzlcSHSxpWmVD6U3bbOl2FeLlgomnVtm0jvXw==",
+      "path": "automapper/8.0.0",
+      "hashPath": "automapper.8.0.0.nupkg.sha512"
     },
     "CSRedisCore/3.0.45": {
       "type": "package",
