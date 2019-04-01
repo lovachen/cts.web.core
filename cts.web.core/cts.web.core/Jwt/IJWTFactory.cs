@@ -4,6 +4,9 @@ using System.Text;
 
 namespace cts.web.core.Jwt
 {
+    /// <summary>
+    /// jwt工厂接口
+    /// </summary>
     public interface IJWTFactory
     {
         /// <summary>

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace cts.web.core.Jwt
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ValidJtiRequirement: IAuthorizationRequirement
     {  
 

@@ -96,7 +96,7 @@ namespace cts.web.core.Librs
         /// base64编码
         /// </summary>
         /// <param name="str">待编码字符串</param>
-        /// <param name="encodingType">编码方式</param>
+        /// <param name="encoding">编码方式</param>
         /// <returns>string：base64编码字符串</returns>
         public static string EncodeBase64(string str, Encoding encoding)
         {
@@ -482,6 +482,7 @@ namespace cts.web.core.Librs
         /// <param name="val"></param>
         /// <param name="key">base64 编码的 key</param>
         /// <param name="iv">base64 编码的 iv</param>
+        /// <param name="encoding"></param>
         /// <param name="cipherMode"></param>
         /// <param name="paddingMode"></param>
         /// <returns></returns>
@@ -499,6 +500,7 @@ namespace cts.web.core.Librs
         /// <param name="iv"></param>
         /// <param name="cipherMode"></param>
         /// <param name="paddingMode"></param>
+        /// <param name="encoding"></param>
         /// <returns></returns>
         public static string AESDecrypt(string val, byte[] key, byte[] iv, Encoding encoding, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
         {
