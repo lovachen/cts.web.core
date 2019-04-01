@@ -1804,6 +1804,19 @@
             <param name="atStart">时间戳排在字符串前面</param>
             <returns></returns>
         </member>
+        <member name="M:System.CombGuid.TimeGen">
+            <summary>
+            获取毫秒数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:System.CombGuid.TilNextMillis(System.Int64)">
+            <summary>
+            获取下一毫秒
+            </summary>
+            <param name="lastTimestamp"></param>
+            <returns></returns>
+        </member>
         <member name="T:System.ConvertExtension">
             <summary>
             转换扩展
