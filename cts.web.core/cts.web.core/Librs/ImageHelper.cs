@@ -286,25 +286,9 @@ namespace cts.web.core.Librs
         /// <returns></returns>
         public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily, string fontcolor)
         {
-            Font font = new Font(fontfamily, fontsize, GraphicsUnit.Pixel);
-            Bitmap testImg = new Bitmap(1, 1);
-            Graphics tgp = Graphics.FromImage(testImg);
-            SizeF stringFlag = tgp.MeasureString(fonttext, font);
-            testImg.Dispose();
-            tgp.Dispose();
-
-            Bitmap image = new Bitmap(Convert.ToInt32(stringFlag.Width), Convert.ToInt32(stringFlag.Height));
-            Graphics gp = Graphics.FromImage(image);
-
-            gp.Clear(Color.FromArgb(0, Color.White));
-            var argbArray = ARGBStringToArray(fontcolor);
-            if (argbArray == null || !argbArray.Any())
-                return null;
-            SolidBrush sb = new SolidBrush(Color.FromArgb(argbArray[1], argbArray[2], argbArray[3]));
-            gp.DrawString(fonttext, font, sb, new PointF(0, 0));
-            gp.Dispose();
-            return image;
+            return FontMarkPicture(fonttext, fontsize, fontfamily, fontcolor, 0);
         }
+
         /// <summary>
         /// 生成文字图片（包含透明度）
         /// </summary>
