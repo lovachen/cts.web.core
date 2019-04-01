@@ -23,5 +23,12 @@ namespace xtest.images
                 fs.Close();
             }
         }
+
+        [Fact]
+        public void Store()
+        {
+           string p = System.IO.Path.Combine("e:/", "abc");
+
+        }
     }
 }
