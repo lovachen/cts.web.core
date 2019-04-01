@@ -312,27 +312,30 @@ namespace cts.web.core.Librs
         /// <param name="fontsize"></param>
         /// <param name="fontfamily"></param>
         /// <param name="fontcolor"></param>
-        /// <param name="opacity"></param>
+        /// <param name="opacity">文字透明度</param>
         /// <returns></returns>
         public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily, string fontcolor, float opacity)
         {
-            Font font = new Font(fontfamily, fontsize, GraphicsUnit.Pixel);
-            Bitmap testImg = new Bitmap(1, 1);
-            Graphics tgp = Graphics.FromImage(testImg);
-            SizeF stringFlag = tgp.MeasureString(fonttext, font);
-            testImg.Dispose();
-            tgp.Dispose();
+            Bitmap image = null;
+            using (Bitmap testImg = new Bitmap(1, 1))
+            {
+                Font font = new Font(fontfamily, fontsize, GraphicsUnit.Pixel);
+                using (Graphics tgp = Graphics.FromImage(testImg))
+                {
+                    SizeF stringFlag = tgp.MeasureString(fonttext, font);
 
-            Bitmap image = new Bitmap(Convert.ToInt32(stringFlag.Width), Convert.ToInt32(stringFlag.Height));
-            Graphics gp = Graphics.FromImage(image);
-
-            gp.Clear(Color.FromArgb(0, Color.White));
-            var argbArray = ARGBStringToArray(fontcolor);
-            if (argbArray == null || !argbArray.Any())
-                return null;
-            SolidBrush sb = new SolidBrush(Color.FromArgb((int)(opacity * 255), argbArray[1], argbArray[2], argbArray[3]));
-            gp.DrawString(fonttext, font, sb, new PointF(0, 0));
-            gp.Dispose();
+                    image = new Bitmap(Convert.ToInt32(stringFlag.Width), Convert.ToInt32(stringFlag.Height));
+                    using (Graphics gp = Graphics.FromImage(image))
+                    {
+                        gp.Clear(Color.FromArgb(0, Color.White));
+                        var argbArray = ARGBStringToArray(fontcolor);
+                        if (argbArray == null || !argbArray.Any())
+                            return null;
+                        SolidBrush sb = new SolidBrush(Color.FromArgb((int)(opacity * 255), argbArray[1], argbArray[2], argbArray[3]));
+                        gp.DrawString(fonttext, font, sb, new PointF(0, 0));
+                    }
+                }
+            }
             return image;
         }
 
