@@ -1080,7 +1080,7 @@
             <param name="opacity">透明度：1-100</param>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.WaterMarkText(System.DrawingCore.Image,System.String,System.String,System.Int32,System.String,cts.web.core.Librs.WaterPosition,System.Int32,System.Int32)">
+        <member name="M:cts.web.core.Librs.ImageHelper.AddWaterText(System.DrawingCore.Image,System.String,System.String,System.Int32,System.String,cts.web.core.Librs.WaterPosition,System.Int32,System.Int32)">
             <summary>
             图片添加文字水印
             </summary>
@@ -1094,9 +1094,9 @@
             <param name="rotate">倾斜度 正负180</param>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.WaterMarkPicture(System.DrawingCore.Image,System.DrawingCore.Image,cts.web.core.Librs.WaterPosition,System.Int32)">
+        <member name="M:cts.web.core.Librs.ImageHelper.AddWaterPic(System.DrawingCore.Image,System.DrawingCore.Image,cts.web.core.Librs.WaterPosition,System.Int32)">
             <summary>
-            图片添加文字水印
+            图片添加水印
             </summary>
             <param name="image"></param>
             <param name="watermark">水印图片</param>
@@ -1111,21 +1111,22 @@
             <param name="rgbstring"></param>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String)">
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String)">
             <summary>
-            生成文字图片
+            生成文字图片 默认文字不透明
             </summary>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.Single)">
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String,System.Single)">
             <summary>
             生成文字图片（包含透明度）
             </summary>
-            <param name="fonttext"></param>
-            <param name="fontsize"></param>
-            <param name="fontfamily"></param>
-            <param name="fontcolor"></param>
-            <param name="opacity">文字透明度</param>
+            <param name="fonttext">文字</param>
+            <param name="fontsize">文字大小 px单位</param>
+            <param name="fontfamily">字体</param>
+            <param name="fontcolor">字体颜色</param>
+            <param name="backColor">背景色</param>
+            <param name="opacity">文字透明度,0 ~ 1</param>
             <returns></returns>
         </member>
         <member name="M:cts.web.core.Librs.ImageHelper.Compress(System.IO.MemoryStream,System.Int32)">
@@ -1505,6 +1506,41 @@
             <param name="subject"></param>
             <param name="body"></param>
             <param name="isHtml"></param>
+        </member>
+        <member name="T:cts.web.core.MediaItem.IMediaItemStorage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:cts.web.core.MediaItem.IMediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
+            <summary>
+            文件存储,返回路径的相对路径
+            </summary>
+            <param name="stream"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.MediaItem.MediaItemStorage">
+            <summary>
+            媒体存储
+            </summary>
+        </member>
+        <member name="M:cts.web.core.MediaItem.MediaItemStorage.#ctor(cts.web.core.IWebHelper)">
+            <summary>
+            
+            </summary>
+            <param name="webHelper"></param>
+        </member>
+        <member name="M:cts.web.core.MediaItem.MediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
+            <summary>
+            文件存储,返回路径的相对路径
+            存储到当前应用的目录下
+            </summary>
+            <param name="stream"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
+            <param name="fileName"></param>
+            <returns>返回相对路径</returns>
         </member>
         <member name="T:cts.web.core.Menu.SiteMapNode">
             <summary>
@@ -1972,6 +2008,56 @@
             验证是否是邮箱
             </summary>
             <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.FormFileExtension">
+            <summary>
+            上传文件扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            文件是否是图片
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsBigSize(Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
+            <summary>
+            文件大小超出范围
+            </summary>
+            <param name="formFile"></param>
+            <param name="length">字节大小 例 100kb，100*1024 = 102400 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetSHA1(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的哈希SHA1值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="suffix">是否带后缀</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
             <returns></returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
