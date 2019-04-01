@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.DrawingCore;
 using System.DrawingCore.Drawing2D;
 using System.DrawingCore.Imaging;
+using System.DrawingCore.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -88,7 +89,7 @@ namespace cts.web.core.Librs
         /// <returns></returns>
         public static Image WaterMarkText(Image image, string text, string fontFamily, int emSize, string fontColor, WaterPosition position, int opacity)
         {
-            return WaterMarkText(image, text, fontFamily, emSize, fontColor, position, opacity, 0);
+            return AddWaterText(image, text, fontFamily, emSize, fontColor, position, opacity, 0);
         }
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace cts.web.core.Librs
         /// <param name="opacity">透明度：1-100</param>
         /// <param name="rotate">倾斜度 正负180</param>
         /// <returns></returns>
-        public static Image WaterMarkText(Image image, string text, string fontFamily, int emSize, string fontColor, WaterPosition position, int opacity, int rotate)
+        public static Image AddWaterText(Image image, string text, string fontFamily, int emSize, string fontColor, WaterPosition position, int opacity, int rotate)
         {
             using (Graphics gs = Graphics.FromImage(image))
             {
@@ -162,84 +163,86 @@ namespace cts.web.core.Librs
 
 
         /// <summary>
-        /// 图片添加文字水印
+        /// 图片添加水印
         /// </summary>
         /// <param name="image"></param>
         /// <param name="watermark">水印图片</param>
         /// <param name="position">位置</param>
         /// <param name="opacity">透明度。1-100，越小透越透明</param>
         /// <returns></returns>
-        public static Image WaterMarkPicture(Image image, Image watermark, WaterPosition position, int opacity)
+        public static Image AddWaterPic(Image image, Image watermark, WaterPosition position, int opacity)
         {
-            Graphics g = Graphics.FromImage(image);
+            //如果水印图片大于图片，则不添加水印
             if (watermark.Height >= image.Height || watermark.Width >= image.Width)
                 return image;
 
-            ImageAttributes imageAttributes = new ImageAttributes();
-            ColorMap colorMap = new ColorMap();
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                ImageAttributes imageAttributes = new ImageAttributes();
+                ColorMap colorMap = new ColorMap();
 
-            colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
-            colorMap.NewColor = Color.FromArgb(0, 0, 0, 0);
-            ColorMap[] remapTable = { colorMap };
+                colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
+                colorMap.NewColor = Color.FromArgb(0, 0, 0, 0);
+                ColorMap[] remapTable = { colorMap };
 
-            imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
+                imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
 
-            float transparency = 0.5F;
-            if (opacity >= 1 && opacity <= 100)
-                transparency = (opacity / 100.0F);
+                float transparency = 0.5F;
+                if (opacity >= 1 && opacity <= 100)
+                    transparency = (opacity / 100.0F);
 
-
-            float[][] colorMatrixElements = {
+                float[][] colorMatrixElements = {
                                                   new float[] {1.0f,  0.0f,  0.0f,  0.0f, 0.0f},
                                                   new float[] {0.0f,  1.0f,  0.0f,  0.0f, 0.0f},
                                                   new float[] {0.0f,  0.0f,  1.0f,  0.0f, 0.0f},
                                                   new float[] {0.0f,  0.0f,  0.0f,  transparency, 0.0f},
                                                   new float[] {0.0f,  0.0f,  0.0f,  0.0f, 1.0f}
                                               };
-            ColorMatrix colorMatrix = new ColorMatrix(colorMatrixElements);
-            imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-            int xpos = 0;
-            int ypos = 0;
-            switch (position)
-            {
-                case WaterPosition.左上:
-                    xpos = (int)(image.Width * (float).01);
-                    ypos = (int)(image.Height * (float).01);
-                    break;
-                case WaterPosition.中上:
-                    xpos = ((int)(image.Width * (float).50) - (watermark.Width / 2));
-                    ypos = (int)(image.Height * (float).01);
-                    break;
-                case WaterPosition.右上:
-                    xpos = ((int)(image.Width * (float).99) - watermark.Width);
-                    ypos = (int)(image.Height * (float).01);
-                    break;
-                case WaterPosition.左中:
-                    xpos = (int)(image.Width * (float).01);
-                    ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
-                    break;
-                case WaterPosition.中中:
-                    xpos = (int)((image.Width * (float).50) - (watermark.Width / 2));
-                    ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
-                    break;
-                case WaterPosition.右中:
-                    xpos = (int)((image.Width * (float).99) - watermark.Width);
-                    ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
-                    break;
-                case WaterPosition.左下:
-                    xpos = (int)(image.Width * (float).01);
-                    ypos = (int)((image.Height * (float).99) - watermark.Height);
-                    break;
-                case WaterPosition.中下:
-                    xpos = (int)((image.Width * (float).50) - (watermark.Width / 2));
-                    ypos = (int)((image.Height * (float).99) - watermark.Height);
-                    break;
-                case WaterPosition.右下:
-                    xpos = (int)((image.Width * (float).99) - watermark.Width);
-                    ypos = (int)((image.Height * (float).99) - watermark.Height);
-                    break;
+                ColorMatrix colorMatrix = new ColorMatrix(colorMatrixElements);
+                imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+                int xpos = 0;
+                int ypos = 0;
+                switch (position)
+                {
+                    case WaterPosition.左上:
+                        xpos = (int)(image.Width * (float).01);
+                        ypos = (int)(image.Height * (float).01);
+                        break;
+                    case WaterPosition.中上:
+                        xpos = ((int)(image.Width * (float).50) - (watermark.Width / 2));
+                        ypos = (int)(image.Height * (float).01);
+                        break;
+                    case WaterPosition.右上:
+                        xpos = ((int)(image.Width * (float).99) - watermark.Width);
+                        ypos = (int)(image.Height * (float).01);
+                        break;
+                    case WaterPosition.左中:
+                        xpos = (int)(image.Width * (float).01);
+                        ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
+                        break;
+                    case WaterPosition.中中:
+                        xpos = (int)((image.Width * (float).50) - (watermark.Width / 2));
+                        ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
+                        break;
+                    case WaterPosition.右中:
+                        xpos = (int)((image.Width * (float).99) - watermark.Width);
+                        ypos = (int)((image.Height * (float).50) - (watermark.Height / 2));
+                        break;
+                    case WaterPosition.左下:
+                        xpos = (int)(image.Width * (float).01);
+                        ypos = (int)((image.Height * (float).99) - watermark.Height);
+                        break;
+                    case WaterPosition.中下:
+                        xpos = (int)((image.Width * (float).50) - (watermark.Width / 2));
+                        ypos = (int)((image.Height * (float).99) - watermark.Height);
+                        break;
+                    case WaterPosition.右下:
+                        xpos = (int)((image.Width * (float).99) - watermark.Width);
+                        ypos = (int)((image.Height * (float).99) - watermark.Height);
+                        break;
+                }
+                g.DrawImage(watermark, new Rectangle(xpos, ypos, watermark.Width, watermark.Height), 0, 0, watermark.Width, watermark.Height, GraphicsUnit.Pixel, imageAttributes);
             }
-            g.DrawImage(watermark, new Rectangle(xpos, ypos, watermark.Width, watermark.Height), 0, 0, watermark.Width, watermark.Height, GraphicsUnit.Pixel, imageAttributes);
             return image;
         }
 
@@ -277,41 +280,44 @@ namespace cts.web.core.Librs
                 default:
                     return null;
             }
-            return array.Select(one => !string.IsNullOrEmpty(one) ? Convert.ToInt32(one, 16) : 0).ToArray();
+            return array.Select(one => !String.IsNullOrEmpty(one) ? Convert.ToInt32(one, 16) : 0).ToArray();
         }
 
         /// <summary>
-        /// 生成文字图片
+        /// 生成文字图片 默认文字不透明
         /// </summary>
         /// <returns></returns>
-        public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily, string fontcolor)
+        public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily, string fontcolor,string backColor)
         {
-            return FontMarkPicture(fonttext, fontsize, fontfamily, fontcolor, 0);
+            return FontMarkPicture(fonttext, fontsize, fontfamily, fontcolor, backColor,1);
         }
 
         /// <summary>
         /// 生成文字图片（包含透明度）
         /// </summary>
-        /// <param name="fonttext"></param>
-        /// <param name="fontsize"></param>
-        /// <param name="fontfamily"></param>
-        /// <param name="fontcolor"></param>
-        /// <param name="opacity">文字透明度</param>
+        /// <param name="fonttext">文字</param>
+        /// <param name="fontsize">文字大小 px单位</param>
+        /// <param name="fontfamily">字体</param>
+        /// <param name="fontcolor">字体颜色</param>
+        /// <param name="backColor">背景色</param>
+        /// <param name="opacity">文字透明度,0 ~ 1</param>
         /// <returns></returns>
-        public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily, string fontcolor, float opacity)
+        public static Image FontMarkPicture(string fonttext, int fontsize, string fontfamily,string fontcolor,string backColor, float opacity)
         {
             Bitmap image = null;
             using (Bitmap testImg = new Bitmap(1, 1))
             {
+                StringFormat format = new StringFormat(StringFormatFlags.NoClip);
                 Font font = new Font(fontfamily, fontsize, GraphicsUnit.Pixel);
                 using (Graphics tgp = Graphics.FromImage(testImg))
                 {
-                    SizeF stringFlag = tgp.MeasureString(fonttext, font);
+                    SizeF stringFlag = tgp.MeasureString(fonttext, font, PointF.Empty, format);
 
-                    image = new Bitmap(Convert.ToInt32(stringFlag.Width), Convert.ToInt32(stringFlag.Height));
+                    image = new Bitmap(Convert.ToInt32(stringFlag.Width+1), Convert.ToInt32(stringFlag.Height+1));
                     using (Graphics gp = Graphics.FromImage(image))
                     {
-                        gp.Clear(Color.FromArgb(0, Color.White));
+                       var backcolor = ARGBStringToArray(backColor);
+                        gp.Clear(Color.FromArgb(255,backcolor[1], backcolor[2], backcolor[3]));
                         var argbArray = ARGBStringToArray(fontcolor);
                         if (argbArray == null || !argbArray.Any())
                             return null;
@@ -322,7 +328,7 @@ namespace cts.web.core.Librs
             }
             return image;
         }
-
+         
         /// <summary>
         /// 压缩图片，先定宽度最大1920px
         /// </summary>

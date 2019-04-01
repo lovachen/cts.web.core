@@ -1111,22 +1111,21 @@
             <param name="rgbstring"></param>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String)">
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String)">
             <summary>
-            生成文字图片 默认文字不透明
+            生成文字图片
             </summary>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.String,System.Single)">
+        <member name="M:cts.web.core.Librs.ImageHelper.FontMarkPicture(System.String,System.Int32,System.String,System.String,System.Single)">
             <summary>
             生成文字图片（包含透明度）
             </summary>
-            <param name="fonttext">文字</param>
-            <param name="fontsize">文字大小 px单位</param>
-            <param name="fontfamily">字体</param>
-            <param name="fontcolor">字体颜色</param>
-            <param name="backColor">背景色</param>
-            <param name="opacity">文字透明度,0 ~ 1</param>
+            <param name="fonttext"></param>
+            <param name="fontsize"></param>
+            <param name="fontfamily"></param>
+            <param name="fontcolor"></param>
+            <param name="opacity">文字透明度</param>
             <returns></returns>
         </member>
         <member name="M:cts.web.core.Librs.ImageHelper.Compress(System.IO.MemoryStream,System.Int32)">
