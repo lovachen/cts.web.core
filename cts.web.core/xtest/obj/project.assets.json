@@ -3100,7 +3100,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "cts.web.core/1.0.17": {
+      "cts.web.core/1.0.18": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
@@ -9622,7 +9622,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "cts.web.core/1.0.17": {
+    "cts.web.core/1.0.18": {
       "type": "project",
       "path": "../cts.web.core/cts.web.core.csproj",
       "msbuildProject": "../cts.web.core/cts.web.core.csproj"
@@ -9632,7 +9632,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NET.Test.Sdk >= 15.9.0",
       "Microsoft.NETCore.App >= 2.2.0",
-      "cts.web.core >= 1.0.17",
+      "cts.web.core >= 1.0.18",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
