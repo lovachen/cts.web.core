@@ -67,6 +67,26 @@ namespace Microsoft.AspNetCore.Http
                 return sb.ToString();
             }
         }
+        
+        /// <summary>
+        /// 获取文件的MD5值
+        /// </summary>
+        /// <param name="formFile"></param>
+        /// <returns></returns>
+        public static string GetMD5(this IFormFile formFile)
+        {
+            using (var ms = formFile.OpenReadStream())
+            {
+                MD5 md5 = MD5.Create();
+                byte[] retval = md5.ComputeHash(ms);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < retval.Length; i++)
+                {
+                    sb.Append(retval[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
+        }
 
         /// <summary>
         /// 创建保存图片文件

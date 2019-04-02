@@ -2037,6 +2037,13 @@
             <param name="formFile"></param>
             <returns></returns>
         </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetMD5(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的MD5值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
         <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
             <summary>
             创建保存图片文件
