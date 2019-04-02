@@ -1514,12 +1514,13 @@
         </member>
         <member name="M:cts.web.core.MediaItem.IMediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
             <summary>
-            文件存储,返回路径的相对路径
+            文件存储,返回路径的相对文件路径
+            存储到当前应用的目录下
             </summary>
             <param name="stream"></param>
             <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
             <param name="fileName"></param>
-            <returns></returns>
+            <returns>返回相对路径</returns>
         </member>
         <member name="T:cts.web.core.MediaItem.MediaItemStorage">
             <summary>
@@ -1534,7 +1535,7 @@
         </member>
         <member name="M:cts.web.core.MediaItem.MediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
             <summary>
-            文件存储,返回路径的相对路径
+            文件存储,返回路径的相对文件路径
             存储到当前应用的目录下
             </summary>
             <param name="stream"></param>
@@ -2066,6 +2067,46 @@
             <param name="compress">是否压缩图片</param>
             <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
             <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.ImageInfo">
+            <summary>
+            上传文件后返回的文件结果
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Length">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.FileName">
+            <summary>
+            原文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.NewFileName">
+            <summary>
+            新文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.IOPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.ExtName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Height">
+            <summary>
+            高
+            </summary>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
             <summary>

@@ -2,6 +2,7 @@
 using cts.web.core.MediaItem;
 using System;
 using System.Collections.Generic;
+using System.DrawingCore;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -67,7 +68,7 @@ namespace Microsoft.AspNetCore.Http
                 return sb.ToString();
             }
         }
-        
+
         /// <summary>
         /// 获取文件的MD5值
         /// </summary>
@@ -97,7 +98,7 @@ namespace Microsoft.AspNetCore.Http
         /// <param name="compress">是否压缩图片</param>
         /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
         /// <returns></returns>
-        public static string CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool compress = false, int flag = 50)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool compress = false, int flag = 50)
         {
             return CreateImagePathFromStream(formFile, imageStorage, virtualPath, false, compress, flag);
         }
@@ -112,35 +113,84 @@ namespace Microsoft.AspNetCore.Http
         /// <param name="compress">是否压缩图片</param>
         /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
         /// <returns></returns>
-        public static string CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
         {
-            var imagePath = string.Empty;
-
+            ImageInfo info = new ImageInfo();
             using (Stream sm = formFile.OpenReadStream())
             {
+                info.FileName = formFile.FileName;
                 using (var memoryStream = new MemoryStream())
                 {
+                    MemoryStream tempMs = null;
                     sm.CopyTo(memoryStream);
                     string fileName = suffix ? Guid.NewGuid() + Path.GetExtension(formFile.FileName) : Guid.NewGuid().ToString();
+                    info.NewFileName = fileName;
+                    info.ExtName = Path.GetExtension(formFile.FileName);
                     if (compress)
                     {
-                        using (MemoryStream ms = ImageHelper.Compress(memoryStream, flag))
-                        {
-                            imagePath = imageStorage.Storage(ms, virtualPath, fileName);
-                        }
+                        tempMs = ImageHelper.Compress(memoryStream, flag);
                     }
                     else
                     {
-                        imagePath = imageStorage.Storage(memoryStream, virtualPath, fileName);
+                        tempMs = memoryStream;
                     }
+                    info.IOPath = imageStorage.Storage(tempMs, virtualPath, fileName);
+                    using(Image image = Image.FromStream(tempMs))
+                    {
+                        info.Width = image.Width;
+                        info.Height = image.Height;
+                    }
+                    tempMs.Dispose();
                 }
             }
-            return imagePath;
+            return info;
         }
 
 
 
 
 
+    }
+
+    /// <summary>
+    /// 上传文件后返回的文件结果
+    /// </summary>
+    public class ImageInfo
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Length { get; set; }
+
+
+        /// <summary>
+        /// 原文件名
+        /// </summary>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// 新文件名
+        /// </summary>
+        public string NewFileName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string IOPath { get; set; }
+
+        /// <summary>
+        /// 扩展名
+        /// </summary>
+        public string ExtName { get; set; }
+
+        /// <summary>
+        /// 宽
+        /// </summary>
+        public int Width { get; set; }
+
+        /// <summary>
+        /// 高
+        /// </summary>
+        public int Height { get; set; }
     }
 }

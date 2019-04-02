@@ -1514,12 +1514,13 @@
         </member>
         <member name="M:cts.web.core.MediaItem.IMediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
             <summary>
-            文件存储,返回路径的相对路径
+            文件存储,返回路径的相对文件路径
+            存储到当前应用的目录下
             </summary>
             <param name="stream"></param>
             <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
             <param name="fileName"></param>
-            <returns></returns>
+            <returns>返回相对路径</returns>
         </member>
         <member name="T:cts.web.core.MediaItem.MediaItemStorage">
             <summary>
@@ -1534,12 +1535,13 @@
         </member>
         <member name="M:cts.web.core.MediaItem.MediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
             <summary>
-            保存文件 返回文件的相对路径
+            文件存储,返回路径的相对文件路径
+            存储到当前应用的目录下
             </summary>
             <param name="stream"></param>
-            <param name="virtualPath"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
             <param name="fileName"></param>
-            <returns></returns>
+            <returns>返回相对路径</returns>
         </member>
         <member name="T:cts.web.core.Menu.SiteMapNode">
             <summary>
@@ -2007,6 +2009,63 @@
             验证是否是邮箱
             </summary>
             <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.FormFileExtension">
+            <summary>
+            上传文件扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            文件是否是图片
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsBigSize(Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
+            <summary>
+            文件大小超出范围
+            </summary>
+            <param name="formFile"></param>
+            <param name="length">字节大小 例 100kb，100*1024 = 102400 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetSHA1(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的哈希SHA1值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetMD5(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的MD5值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="suffix">是否带后缀</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
             <returns></returns>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
