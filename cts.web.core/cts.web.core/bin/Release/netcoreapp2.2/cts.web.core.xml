@@ -1819,6 +1819,201 @@
             
             </summary>
         </member>
+        <member name="T:cts.web.core.Skia.CroppingMode">
+            <summary>
+            缩略图模式
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_WIDTH">
+            <summary>
+            宽指定，高等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_HEIGHT">
+            <summary>
+            高指定，宽等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.CUT">
+            <summary>
+            剪裁
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.NONE">
+            <summary>
+            不剪裁
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.CroppingRectangle">
+            <summary>
+            剪裁矩形
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.CroppingRectangle.#ctor(SkiaSharp.SKBitmap,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            
+            </summary>
+            <param name="shourceBitmap"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="croppingMode"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Rect">
+            <summary>
+            源矩形
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Dest">
+            <summary>
+            目标矩形
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.ResolveArg">
+            <summary>
+            拆解参数
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.ResolveArg.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cut"></param>
+            <param name="resize"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Mode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Width">
+            <summary>
+            长
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Height">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint">
+            <summary>
+            创建画笔 默认字体大小40
+            颜色默认白色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint(SkiaSharp.SKColor,System.String,System.Single,SkiaSharp.SKFontStyle)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+            <param name="fontName"></param>
+            <param name="fontSize"></param>
+            <param name="fontStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreateLinePaint">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.GetCaptcha(System.String)">
+            <summary>
+            生成验证码图片
+            </summary>
+            <param name="captchaText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Skia.SkiaHelper">
+            <summary>
+            SkiaSharp 工具类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode,SkiaSharp.SKEncodedImageFormat)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">文件绝对路径</param>
+            <param name="width">目标宽</param>
+            <param name="height">目标高</param>
+            <param name="mode">剪裁方式</param>
+            <param name="format">格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,SkiaSharp.SKEncodedImageFormat)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="format">格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="extName">文件扩展名</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="cut"></param>
+            <param name="resize"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetImageFormat(System.String)">
+            <summary>
+            获取格式
+            </summary>
+            <param name="extName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetResolve(System.String,System.String)">
+            <summary>
+            获取剪裁方式
+            </summary>
+            <param name="cut">指定剪裁 m_fill：裁剪，m_h：指定高，m_w：指定宽</param>
+            <param name="resize">剪裁大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,System.String,System.Single,SkiaSharp.SKFontStyle)">
+            <summary>
+            测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="fontName"></param>
+            <param name="fontSize"></param>
+            <param name="fontStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,SkiaSharp.SKPaint)">
+            <summary>
+             测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="paint"></param>
+            <returns></returns>
+        </member>
         <member name="T:cts.web.core.IdWorker">
             <summary>
             雪花算法，局限在于只能使用69年，机器总数不超过1024台
