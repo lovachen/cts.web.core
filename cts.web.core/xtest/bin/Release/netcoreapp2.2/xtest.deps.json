@@ -9,7 +9,7 @@
       "xtest/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "15.9.0",
-          "cts.web.core": "1.0.19",
+          "cts.web.core": "1.0.18",
           "xunit": "2.4.0",
           "xunit.runner.visualstudio": "2.4.0"
         },
@@ -2243,7 +2243,7 @@
           }
         }
       },
-      "cts.web.core/1.0.19": {
+      "cts.web.core/1.0.18": {
         "dependencies": {
           "AspNetCore.Cache": "1.1.2",
           "AutoMapper": "8.0.0",
@@ -3536,7 +3536,7 @@
       "path": "zkweb.system.drawing/4.0.1",
       "hashPath": "zkweb.system.drawing.4.0.1.nupkg.sha512"
     },
-    "cts.web.core/1.0.19": {
+    "cts.web.core/1.0.18": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
