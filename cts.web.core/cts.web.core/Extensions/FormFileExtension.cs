@@ -69,6 +69,25 @@ namespace Microsoft.AspNetCore.Http
         }
 
         /// <summary>
+		/// 获取文件的MD5值
+		/// </summary>
+		/// <param name="formFile"></param>
+		/// <returns></returns>
+		public static string GetMD5(this IFormFile formFile)
+        {
+            using (Stream inputStream = formFile.OpenReadStream())
+            {
+                byte[] array = MD5.Create().ComputeHash(inputStream);
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < array.Length; i++)
+                {
+                    stringBuilder.Append(array[i].ToString("x2"));
+                }
+                return stringBuilder.ToString();
+            }
+        }
+
+        /// <summary>
         /// 创建保存图片文件
         /// </summary>
         /// <param name="formFile"></param>
