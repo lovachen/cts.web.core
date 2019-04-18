@@ -2,6 +2,7 @@
 using cts.web.core.MediaItem;
 using System;
 using System.Collections.Generic;
+using System.DrawingCore;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -96,7 +97,7 @@ namespace Microsoft.AspNetCore.Http
         /// <param name="compress">是否压缩图片</param>
         /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
         /// <returns></returns>
-        public static string CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool compress = false, int flag = 50)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool compress = false, int flag = 50)
         {
             return CreateImagePathFromStream(formFile, imageStorage, virtualPath, false, compress, flag);
         }
@@ -111,9 +112,9 @@ namespace Microsoft.AspNetCore.Http
         /// <param name="compress">是否压缩图片</param>
         /// <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
         /// <returns></returns>
-        public static string CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
+        public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
         {
-            var imagePath = string.Empty;
+            ImageInfo imageInfo = new ImageInfo();
 
             using (Stream sm = formFile.OpenReadStream())
             {
@@ -125,21 +126,113 @@ namespace Microsoft.AspNetCore.Http
                     {
                         using (MemoryStream ms = ImageHelper.Compress(memoryStream, flag))
                         {
-                            imagePath = imageStorage.Storage(ms, virtualPath, fileName);
+                            imageInfo.IOPath = imageStorage.Storage(ms, virtualPath, fileName);
+                            imageInfo.Length = ms.Length;
                         }
                     }
                     else
                     {
-                        imagePath = imageStorage.Storage(memoryStream, virtualPath, fileName);
+                        imageInfo.IOPath = imageStorage.Storage(memoryStream, virtualPath, fileName);
+                        imageInfo.Length = memoryStream.Length;
+                    }
+                    imageInfo.NewFileName = fileName;
+                    imageInfo.FileName = formFile.FileName;
+                    imageInfo.ExtName = Path.GetExtension(formFile.FileName);
+                    using (Image image = Image.FromStream(memoryStream))
+                    {
+                        imageInfo.Width = image.Width;
+                        imageInfo.Height = image.Height;
                     }
                 }
             }
-            return imagePath;
+            return imageInfo;
         }
 
-
-
-
-
+ 
     }
+
+
+
+    /// <summary>
+    /// 上传文件后返回的文件结果 
+    /// </summary>
+    public class ImageInfo
+    {
+        /// <summary>
+		///
+		/// </summary>
+		public long Length
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 原文件名
+        /// </summary>
+        public string FileName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 新文件名
+        /// </summary>
+        public string NewFileName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public string IOPath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 扩展名
+        /// </summary>
+        public string ExtName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 宽
+        /// </summary>
+        public int Width
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 高
+        /// </summary>
+        public int Height
+        {
+            get;
+            set;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
