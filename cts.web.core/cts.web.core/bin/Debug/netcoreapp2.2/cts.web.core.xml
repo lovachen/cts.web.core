@@ -1534,12 +1534,13 @@
         </member>
         <member name="M:cts.web.core.MediaItem.MediaItemStorage.Storage(System.IO.MemoryStream,System.String,System.String)">
             <summary>
-            保存文件 返回文件的相对路径
+            文件存储,返回路径的相对路径
+            存储到当前应用的目录下
             </summary>
             <param name="stream"></param>
-            <param name="virtualPath"></param>
+            <param name="virtualPath">虚拟相对目录 xxxx/xxx</param>
             <param name="fileName"></param>
-            <returns></returns>
+            <returns>返回相对路径</returns>
         </member>
         <member name="T:cts.web.core.Menu.SiteMapNode">
             <summary>
@@ -1817,6 +1818,255 @@
             
             </summary>
         </member>
+        <member name="T:cts.web.core.Skia.CroppingMode">
+            <summary>
+            缩略图模式
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_WIDTH">
+            <summary>
+            宽指定，高等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.RATIO_HEIGHT">
+            <summary>
+            高指定，宽等比缩放
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.CUT">
+            <summary>
+            剪裁
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Skia.CroppingMode.NONE">
+            <summary>
+            不剪裁
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.CroppingRectangle">
+            <summary>
+            剪裁矩形
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.CroppingRectangle.#ctor(SkiaSharp.SKBitmap,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            
+            </summary>
+            <param name="shourceBitmap"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="croppingMode"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Rect">
+            <summary>
+            源矩形
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.CroppingRectangle.Dest">
+            <summary>
+            目标矩形
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Skia.ResolveArg">
+            <summary>
+            拆解参数
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.ResolveArg.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cut"></param>
+            <param name="resize"></param>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Mode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Width">
+            <summary>
+            长
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Skia.ResolveArg.Height">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint">
+            <summary>
+            创建画笔 默认字体大小40
+            颜色默认白色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint(SkiaSharp.SKColor,System.String,System.Single,SkiaSharp.SKFontStyle)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+            <param name="fontName"></param>
+            <param name="fontSize"></param>
+            <param name="fontStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreateLinePaint">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.GetCaptcha(System.String)">
+            <summary>
+            生成验证码图片
+            </summary>
+            <param name="captchaText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cts.web.core.Skia.SkiaHelper">
+            <summary>
+            SkiaSharp 工具类
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode,SkiaSharp.SKEncodedImageFormat,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <param name="format"></param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode,SkiaSharp.SKEncodedImageFormat,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <param name="format"></param>
+            <param name="stream">水印流</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,SkiaSharp.SKEncodedImageFormat,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="format">格式</param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,SkiaSharp.SKEncodedImageFormat,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="format">格式</param>
+            <param name="stream">水印流</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="extName">文件扩展名</param>
+            <param name="logoPath">水印地址，不为空时添加水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String,System.String,System.IO.Stream)">
+            <summary>
+            创建缩略图，并且格式化
+            </summary>
+            <param name="abPath">图片绝对路径</param>
+            <param name="cut">指定的剪裁方式</param>
+            <param name="resize">指定的剪裁大小</param>
+            <param name="extName">文件扩展名</param>
+            <param name="stream">水印</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.Int32,System.Int32,cts.web.core.Skia.CroppingMode)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MakeThumb(System.String,System.String,System.String)">
+            <summary>
+            创建缩略图，未格式化
+            </summary>
+            <param name="abPath"></param>
+            <param name="cut"></param>
+            <param name="resize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetImageFormat(System.String)">
+            <summary>
+            获取格式
+            </summary>
+            <param name="extName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.GetResolve(System.String,System.String)">
+            <summary>
+            获取剪裁方式
+            </summary>
+            <param name="cut">指定剪裁 m_fill：裁剪，m_h：指定高，m_w：指定宽</param>
+            <param name="resize">剪裁大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,System.String,System.Single,SkiaSharp.SKFontStyle)">
+            <summary>
+            测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="fontName"></param>
+            <param name="fontSize"></param>
+            <param name="fontStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.MeasureText(System.String,SkiaSharp.SKPaint)">
+            <summary>
+             测量文字 获取矩形
+            </summary>
+            <param name="text"></param>
+            <param name="paint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.DrawMark(SkiaSharp.SKCanvas,System.Int32,System.Int32,System.String)">
+            <summary>
+            添加水印
+            </summary>
+            <param name="height"></param>
+            <param name="width"></param>
+            <param name="canvas"></param>
+            <param name="logoPath"></param>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaHelper.DrawMark(SkiaSharp.SKCanvas,System.Int32,System.Int32,System.IO.Stream)">
+            <summary>
+            添加水印
+            </summary>
+            <param name="canvas"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="stream"></param>
+        </member>
         <member name="T:cts.web.core.IdWorker">
             <summary>
             雪花算法，局限在于只能使用69年，机器总数不超过1024台
@@ -2008,6 +2258,103 @@
             </summary>
             <param name="source"></param>
             <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.FormFileExtension">
+            <summary>
+            上传文件扩展
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            文件是否是图片
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.IsBigSize(Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
+            <summary>
+            文件大小超出范围
+            </summary>
+            <param name="formFile"></param>
+            <param name="length">字节大小 例 100kb，100*1024 = 102400 </param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetSHA1(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的哈希SHA1值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.GetMD5(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            获取文件的MD5值
+            </summary>
+            <param name="formFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.FormFileExtension.CreateImagePathFromStream(Microsoft.AspNetCore.Http.IFormFile,cts.web.core.MediaItem.IMediaItemStorage,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            创建保存图片文件
+            </summary>
+            <param name="formFile"></param>
+            <param name="imageStorage"></param>
+            <param name="virtualPath">虚拟相对路径 xxx/xxx</param>
+            <param name="suffix">是否带后缀</param>
+            <param name="compress">是否压缩图片</param>
+            <param name="flag">压缩质量 1-100(数字越小压缩率越高)。只有启用压缩是才起作用</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.ImageInfo">
+            <summary>
+            上传文件后返回的文件结果 
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Length">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.FileName">
+            <summary>
+            原文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.NewFileName">
+            <summary>
+            新文件名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.IOPath">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.ExtName">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.ImageInfo.Height">
+            <summary>
+            高
+            </summary>
         </member>
         <member name="T:Microsoft.AspNetCore.Http.HttpRequestExtensions">
             <summary>
