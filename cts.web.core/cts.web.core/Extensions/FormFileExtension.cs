@@ -115,37 +115,28 @@ namespace Microsoft.AspNetCore.Http
         public static ImageInfo CreateImagePathFromStream(this IFormFile formFile, IMediaItemStorage imageStorage, string virtualPath, bool suffix, bool compress, int flag)
         {
             ImageInfo imageInfo = new ImageInfo();
-
-            using (Stream sm = formFile.OpenReadStream())
+            using (Stream stream = formFile.OpenReadStream())
             {
-                using (var memoryStream = new MemoryStream())
+                imageInfo.FileName = formFile.FileName;
+                using (MemoryStream memoryStream2 = new MemoryStream())
                 {
-                    sm.CopyTo(memoryStream);
-                    string fileName = suffix ? Guid.NewGuid() + Path.GetExtension(formFile.FileName) : Guid.NewGuid().ToString();
-                    if (compress)
-                    {
-                        using (MemoryStream ms = ImageHelper.Compress(memoryStream, flag))
-                        {
-                            imageInfo.IOPath = imageStorage.Storage(ms, virtualPath, fileName);
-                            imageInfo.Length = ms.Length;
-                        }
-                    }
-                    else
-                    {
-                        imageInfo.IOPath = imageStorage.Storage(memoryStream, virtualPath, fileName);
-                        imageInfo.Length = memoryStream.Length;
-                    }
-                    imageInfo.NewFileName = fileName;
-                    imageInfo.FileName = formFile.FileName;
+                    MemoryStream memoryStream = null;
+                    stream.CopyTo(memoryStream2);
+                    string obj = suffix ? (Guid.NewGuid() + Path.GetExtension(formFile.FileName)) : Guid.NewGuid().ToString();
+                    string fileName = imageInfo.NewFileName = obj;
                     imageInfo.ExtName = Path.GetExtension(formFile.FileName);
+                    memoryStream = ((!compress) ? memoryStream2 : ImageHelper.Compress(memoryStream2, flag));
+                    imageInfo.IOPath = imageStorage.Storage(memoryStream, virtualPath, fileName);
                     using (Image image = Image.FromStream(memoryStream))
                     {
                         imageInfo.Width = image.Width;
                         imageInfo.Height = image.Height;
                     }
+                    imageInfo.Length = memoryStream.Length;
+                    memoryStream.Dispose();
+                    return imageInfo;
                 }
             }
-            return imageInfo;
         }
 
  
