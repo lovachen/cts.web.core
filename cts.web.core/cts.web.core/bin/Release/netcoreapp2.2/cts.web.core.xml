@@ -1310,6 +1310,32 @@
             本期剩余本金
             </summary>
         </member>
+        <member name="T:cts.web.core.Librs.PingYinHelper">
+            <summary>
+            拼音
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.ConvertToAllSpell(System.String)">
+            <summary>
+            汉字转全拼
+            </summary>
+            <param name="strChinese"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.GetFirstSpell(System.String)">
+            <summary>
+            汉字转首字母
+            </summary>
+            <param name="strChinese"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cts.web.core.Librs.PingYinHelper.GetSpell(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="chr"></param>
+            <returns></returns>
+        </member>
         <member name="T:cts.web.core.Librs.RuntimeHelper">
             <summary>
             允许时

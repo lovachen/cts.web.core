@@ -28,7 +28,7 @@ namespace cts.web.core.Librs
                         fullSpell.Append(GetSpell(chr));
                     }
 
-                    return fullSpell.ToString().ToUpper();
+                    return fullSpell.ToString());
                 }
             }
             catch (Exception)
@@ -55,7 +55,7 @@ namespace cts.web.core.Librs
                         var chr = strChinese[i];
                         fullSpell.Append(GetSpell(chr)[0]);
                     }
-                    return fullSpell.ToString().ToUpper();
+                    return fullSpell.ToString();
                 }
             }
             catch (Exception)
