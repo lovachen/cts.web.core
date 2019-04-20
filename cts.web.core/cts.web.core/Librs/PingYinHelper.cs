@@ -28,7 +28,7 @@ namespace cts.web.core.Librs
                         fullSpell.Append(GetSpell(chr));
                     }
 
-                    return fullSpell.ToString());
+                    return fullSpell.ToString();
                 }
             }
             catch (Exception)
