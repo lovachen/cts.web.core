@@ -2252,6 +2252,20 @@
             <param name="timeStamp"></param>
             <returns></returns>
         </member>
+        <member name="M:System.DateTimeExtension.ToMilliseconds(System.DateTime)">
+            <summary>
+            获取时间戳，毫秒
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToBase64(System.DateTime)">
+            <summary>
+            时间戳毫秒转base64
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
         <member name="T:System.StringExtension">
             <summary>
             字符串扩展

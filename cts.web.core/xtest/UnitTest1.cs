@@ -19,6 +19,11 @@ namespace xtest
             var py = PingYinHelper.ConvertToAllSpell("≤‚ ‘a");
             var py1 = PingYinHelper.GetFirstSpell("≤‚ ‘a");
 
+           var d = DateTime.Now.ToMilliseconds();
+
+           string s = DateTime.Now.ToBase64();
+
+
             Output.WriteLine(py);
 
         }

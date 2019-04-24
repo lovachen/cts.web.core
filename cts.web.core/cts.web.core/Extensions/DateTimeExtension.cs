@@ -35,6 +35,29 @@ namespace System
             return dtStart.Add(toNow);
         }
 
+        /// <summary>
+        /// 获取时间戳，毫秒
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long ToMilliseconds(this DateTime time)
+        {
+            return (time.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+        }
+
+        /// <summary>
+        /// 时间戳毫秒转base64
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static string ToBase64(this DateTime time)
+        {
+            long timestamp = time.ToMilliseconds();
+            byte[] numArray = BitConverter.GetBytes(timestamp);
+            return Convert.ToBase64String(numArray);
+        }
+
+
 
     }
 }
