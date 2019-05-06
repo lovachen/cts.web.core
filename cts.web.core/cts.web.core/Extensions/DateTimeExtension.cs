@@ -23,17 +23,31 @@ namespace System
         }
 
         /// <summary>
-        /// 时间戳转为时间
+        /// 10位时间戳转为时间
         /// </summary>
         /// <param name="timeStamp"></param>
         /// <returns></returns>
         public static DateTime ToTime(this long timeStamp)
         {
-            DateTime dtStart = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
+            DateTime dtStart = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Local);
             long lTime = long.Parse(timeStamp + "0000000");
             TimeSpan toNow = new TimeSpan(lTime);
             return dtStart.Add(toNow);
         }
+
+        /// <summary>
+        /// 13位时间戳转成时间
+        /// </summary>
+        /// <param name="timeStamp"></param>
+        /// <returns></returns>
+        public static DateTime ToTime(this string timeStamp)
+        {
+            DateTime dtStart = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Local);
+            long lTime = long.Parse(timeStamp + "0000");
+            TimeSpan toNow = new TimeSpan(lTime);
+            return dtStart.Add(toNow);
+        }
+
 
         /// <summary>
         /// 获取时间戳，毫秒

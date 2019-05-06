@@ -23,7 +23,10 @@ namespace xtest
 
            string s = DateTime.Now.ToBase64();
 
-
+            DateTime dtStart = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1,0,0,0,DateTimeKind.Utc), TimeZoneInfo.Local);
+            long lTime = long.Parse("1557127440000" + "0000");
+            TimeSpan toNow = new TimeSpan(lTime);
+            var time = dtStart.Add(toNow);
             Output.WriteLine(py);
 
         }
