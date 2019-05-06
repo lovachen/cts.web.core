@@ -18,7 +18,7 @@ namespace System
         /// <returns></returns>
         public static long ToUnix(this DateTime time)
         {
-            DateTime startTime = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
+            DateTime startTime = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc), TimeZoneInfo.Local);
             return (long)(time.ToUniversalTime() - startTime).TotalSeconds;
         }
 
