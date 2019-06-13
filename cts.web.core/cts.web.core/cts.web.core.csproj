@@ -5,7 +5,7 @@
     <PackageProjectUrl>https://github.com/lovachen/cts.web.core</PackageProjectUrl>
     <Description>asp.net core 项目的类库，提取出来方便使用，持续更新</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
     <Authors>cts</Authors>
   </PropertyGroup>
 
@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Cache" Version="1.1.2" />
-    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="CTS.AspNetCore.Browser" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
@@ -33,8 +33,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.3" />
     <PackageReference Include="NPinyin.Core" Version="2.1.3" />
     <PackageReference Include="PinYinConverterCore" Version="1.0.2" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />

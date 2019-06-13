@@ -1758,6 +1758,37 @@
             返回结果
             </summary>
         </member>
+        <member name="T:cts.web.core.Model.ApiJsonResult`1">
+            <summary>
+            api 结果对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Model.ApiJsonResult`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.code">
+            <summary>
+            0：成功
+            1002：禁止访问的ip
+            1003：未登录
+            1004：token已过期
+            1005：参数错误
+            1006：appid 为空或错误
+            1007：没有权限
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.data">
+            <summary>
+            返回结果
+            </summary>
+        </member>
         <member name="T:cts.web.core.PagedList`1">
             <summary>
             
@@ -2247,7 +2278,14 @@
         </member>
         <member name="M:System.DateTimeExtension.ToTime(System.Int64)">
             <summary>
-            时间戳转为时间
+            10位时间戳转为时间
+            </summary>
+            <param name="timeStamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToTime(System.String)">
+            <summary>
+            13位时间戳转成时间
             </summary>
             <param name="timeStamp"></param>
             <returns></returns>
