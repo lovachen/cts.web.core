@@ -1378,6 +1378,69 @@
             <param name="array"></param>
             <returns></returns>
         </member>
+        <member name="T:cts.web.core.Librs.VerifyCodeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.NumberVerifyCode">
+            <summary>
+            数字验证码
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.AbcVerifyCode">
+            <summary>
+            字母验证码
+            </summary>
+        </member>
+        <member name="F:cts.web.core.Librs.VerifyCodeType.MixVerifyCode">
+            <summary>
+            混合验证码
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Librs.VerifyCodeHelper">
+            <summary>
+            验证码生成
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateNumberVerifyCode(System.Int32)">
+            <summary>  
+            1.数字验证码  
+            </summary>  
+            <param name="length"></param>  
+            <returns></returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateAbcVerifyCode(System.Int32)">
+            <summary>  
+            2.字母验证码  
+            </summary>  
+            <param name="length">字符长度</param>  
+            <returns>验证码字符</returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateMixVerifyCode(System.Int32)">
+            <summary>  
+            3.混合验证码  
+            </summary>  
+            <param name="length">字符长度</param>  
+            <returns>验证码字符</returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateVerifyCode(System.Int32,System.Int32,cts.web.core.Librs.VerifyCodeType)">
+            <summary>  
+            产生验证码
+            </summary>
+            <param name="min">最小长度</param>
+            <param name="max">最大长度</param>
+            <param name="type">验证码类型：数字，字符，符合</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:cts.web.core.Librs.VerifyCodeHelper.CreateVerifyCode(System.Int32,cts.web.core.Librs.VerifyCodeType)">
+            <summary>  
+            产生验证码,默认长度4位
+            </summary>  
+            <param name="length"></param>
+            <param name="type">验证码类型：数字，字符，符合。默认数字</param>  
+            <returns></returns>  
+        </member>
         <member name="T:cts.web.core.Librs.XmlSerializeUtil">
             <summary>
             
@@ -1754,6 +1817,37 @@
             </summary>
         </member>
         <member name="P:cts.web.core.Model.ApiJsonResult.data">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="T:cts.web.core.Model.ApiJsonResult`1">
+            <summary>
+            api 结果对象
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Model.ApiJsonResult`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.code">
+            <summary>
+            0：成功
+            1002：禁止访问的ip
+            1003：未登录
+            1004：token已过期
+            1005：参数错误
+            1006：appid 为空或错误
+            1007：没有权限
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:cts.web.core.Model.ApiJsonResult`1.data">
             <summary>
             返回结果
             </summary>
@@ -2247,7 +2341,14 @@
         </member>
         <member name="M:System.DateTimeExtension.ToTime(System.Int64)">
             <summary>
-            时间戳转为时间
+            10位时间戳转为时间
+            </summary>
+            <param name="timeStamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.DateTimeExtension.ToTime(System.String)">
+            <summary>
+            13位时间戳转成时间
             </summary>
             <param name="timeStamp"></param>
             <returns></returns>
