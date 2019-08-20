@@ -73,6 +73,14 @@ namespace System
             return regex.IsMatch(source);
         }
          
-
+        /// <summary>
+        /// 是否是手机号码
+        /// </summary>
+        /// <param name="source"></param>
+        public static bool IsPhoneNumber(this string source)
+        {
+            Regex regex = new Regex(@"^1[3456789]\d{9}$");
+            return regex.IsMatch(source);
+        }
     }
 }

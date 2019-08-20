@@ -2014,34 +2014,32 @@
             宽
             </summary>
         </member>
-        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint">
+        <member name="T:cts.web.core.Skia.SkiaCaptcha">
             <summary>
-            创建画笔 默认字体大小40
-            颜色默认白色
+            图片验证码
             </summary>
-            <returns></returns>
         </member>
-        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint(SkiaSharp.SKColor,System.String,System.Single,SkiaSharp.SKFontStyle)">
+        <member name="F:cts.web.core.Skia.SkiaCaptcha.Colors">
             <summary>
-            
+            干扰线的颜色集合
+            </summary>
+        </member>
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreatePaint(SkiaSharp.SKColor,System.Single)">
+            <summary>
+            创建画笔
             </summary>
             <param name="color"></param>
-            <param name="fontName"></param>
             <param name="fontSize"></param>
-            <param name="fontStyle"></param>
             <returns></returns>
         </member>
-        <member name="M:cts.web.core.Skia.SkiaCaptcha.CreateLinePaint">
+        <member name="M:cts.web.core.Skia.SkiaCaptcha.GetCaptcha(System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
-            
+            获取验证码
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:cts.web.core.Skia.SkiaCaptcha.GetCaptcha(System.String)">
-            <summary>
-            生成验证码图片
-            </summary>
-            <param name="captchaText"></param>
+            <param name="captchaText">验证码文字</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <param name="lineStrookeWidth">干扰线宽度</param>
             <returns></returns>
         </member>
         <member name="T:cts.web.core.Skia.SkiaHelper">
