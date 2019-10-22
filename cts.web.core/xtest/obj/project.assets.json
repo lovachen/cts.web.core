@@ -2650,7 +2650,7 @@
           "lib/netstandard2.0/ZKWeb.System.Drawing.dll": {}
         }
       },
-      "cts.web.core/1.1.8": {
+      "cts.web.core/2.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
         "dependencies": {
@@ -8241,7 +8241,7 @@
         "zkweb.system.drawing.nuspec"
       ]
     },
-    "cts.web.core/1.1.8": {
+    "cts.web.core/2.0.0": {
       "type": "project",
       "path": "../cts.web.core/cts.web.core.csproj",
       "msbuildProject": "../cts.web.core/cts.web.core.csproj"
@@ -8250,7 +8250,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "Microsoft.NET.Test.Sdk >= 15.9.0",
-      "cts.web.core >= 1.1.8",
+      "cts.web.core >= 2.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]

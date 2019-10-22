@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "cts.web.core/1.1.8": {
+      "cts.web.core/2.0.0": {
         "dependencies": {
           "AspNetCore.Cache": "1.1.2",
           "AutoMapper": "9.0.0",
@@ -693,7 +693,7 @@
     }
   },
   "libraries": {
-    "cts.web.core/1.1.8": {
+    "cts.web.core/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
