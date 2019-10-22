@@ -22,7 +22,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services"></param>
         /// <param name="hosting"></param>
         /// <param name="action"></param>
-        public static void AddJwt(this IServiceCollection services, IHostingEnvironment hosting, Action<JWTTokenOptions> action)
+        public static void AddJwt(this IServiceCollection services, IWebHostEnvironment hosting, Action<JWTTokenOptions> action)
         {
             JWTTokenOptions _tokenOptions = new JWTTokenOptions();
             action(_tokenOptions);
@@ -45,7 +45,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <param name="services"></param>
         /// <param name="hosting"></param>
-        public static void AddJwt(this IServiceCollection services, IHostingEnvironment hosting)
+        public static void AddJwt(this IServiceCollection services, IWebHostEnvironment hosting)
         {
             // 从文件读取密钥
             string keyDir = hosting.ContentRootPath;

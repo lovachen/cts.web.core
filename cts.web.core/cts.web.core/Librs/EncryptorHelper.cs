@@ -488,7 +488,7 @@ namespace cts.web.core.Librs
         /// <returns></returns>
         public static string AESDecrypt(string val, string key, string iv, Encoding encoding, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
         {
-            return AESDecrypt(val, Convert.FromBase64String(key), Convert.FromBase64String(iv), encoding, cipherMode, paddingMode);
+            return AESDecrypt(val, encoding.GetBytes(key), encoding.GetBytes(iv), encoding, cipherMode, paddingMode);
         }
 
 
@@ -516,6 +516,59 @@ namespace cts.web.core.Librs
                 ICryptoTransform transform = rijndaelCipher.CreateDecryptor();
                 byte[] plainText = transform.TransformFinalBlock(encryptedData, 0, encryptedData.Length);
                 return encoding.GetString(plainText);
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// AES 256位无向量加密
+        /// </summary>
+        /// <param name="sourceString"></param>
+        /// <param name="key"></param>
+        /// <param name="encoding"></param>
+        /// <param name="cipherMode"></param>
+        /// <param name="paddingMode"></param>
+        /// <returns></returns>
+        public static string AESEncrypt(string sourceString, string key, Encoding encoding, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
+        {
+            byte[] toEncryptArray = encoding.GetBytes(sourceString);
+            var rm = new RijndaelManaged
+            { 
+                Key = encoding.GetBytes(key),
+                Mode = cipherMode,
+                Padding = paddingMode
+            };
+            ICryptoTransform cTransform = rm.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        /// <summary>
+        /// AES 256位无向量解密
+        /// </summary>
+        /// <param name="sourceString"></param>
+        /// <param name="key"></param>
+        /// <param name="encoding"></param>
+        /// <param name="cipherMode"></param>
+        /// <param name="paddingMode"></param>
+        /// <returns></returns>
+        public static string AESDecrypt(string sourceString, string key, Encoding encoding, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
+        {
+            try
+            {
+                Byte[] toEncryptArray = Convert.FromBase64String(sourceString);
+                RijndaelManaged rm = new RijndaelManaged
+                {
+                    Key = encoding.GetBytes(key),
+                    Mode = CipherMode.ECB,
+                    Padding = PaddingMode.PKCS7
+                };
+                ICryptoTransform cTransform = rm.CreateDecryptor();
+                Byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+                return encoding.GetString(resultArray);
             }
             catch
             {

@@ -18,7 +18,7 @@ namespace cts.web.core
         /// 
         /// </summary>
         private IHttpContextAccessor _httpContextAccessor;
-        private IHostingEnvironment _hostingEnvironment;
+        private IWebHostEnvironment _hostingEnvironment;
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace cts.web.core
         /// <param name="httpContextAccessor"></param>
         /// <param name="hostingEnvironment"></param>
         public WebHelper(IHttpContextAccessor httpContextAccessor,
-            IHostingEnvironment hostingEnvironment)
+            IWebHostEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;
             _httpContextAccessor = httpContextAccessor;
