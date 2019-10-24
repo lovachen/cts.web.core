@@ -6,7 +6,7 @@
     <Description>asp.net core 项目的类库，提取出来方便使用，持续更新
 升级asp.net core 3.0</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>cts</Authors>
   </PropertyGroup>
 
