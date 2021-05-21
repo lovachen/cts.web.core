@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "F:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj": {}
+    "G:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj": {}
   },
   "projects": {
-    "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj": {
+    "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj": {
       "version": "2.0.1",
       "restore": {
-        "projectUniqueName": "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj",
+        "projectUniqueName": "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj",
         "projectName": "cts.web.core",
-        "projectPath": "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\obj\\",
+        "projectPath": "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj",
+        "packagesPath": "C:\\Users\\yysdk\\.nuget\\packages\\",
+        "outputPath": "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "d:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yysdk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +31,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -40,6 +43,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -84,32 +88,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj": {
+    "G:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj",
+        "projectUniqueName": "G:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj",
         "projectName": "xtest",
-        "projectPath": "F:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\github\\cts.web.core\\cts.web.core\\xtest\\obj\\",
+        "projectPath": "G:\\github\\cts.web.core\\cts.web.core\\xtest\\xtest.csproj",
+        "packagesPath": "C:\\Users\\yysdk\\.nuget\\packages\\",
+        "outputPath": "G:\\github\\cts.web.core\\cts.web.core\\xtest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "d:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yysdk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,9 +130,10 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {
-              "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj": {
-                "projectPath": "F:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj"
+              "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj": {
+                "projectPath": "G:\\github\\cts.web.core\\cts.web.core\\cts.web.core\\cts.web.core.csproj"
               }
             }
           }
@@ -136,6 +146,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -160,15 +171,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
